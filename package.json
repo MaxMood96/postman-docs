@@ -55,7 +55,7 @@
     "react-cookie-consent": "^4.1.0",
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
-    "react-instantsearch-dom": "^5.7.0",
+    "react-instantsearch-dom": "^6.1.0",
     "react-onclickout": "^2.0.8",
     "react-tabs": "^3.0.0",
     "react-test-renderer": "^16.9.0",
