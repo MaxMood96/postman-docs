@@ -58,7 +58,7 @@
     "s3-deploy": "1.4.0",
     "sass": "1.44.0",
     "shelljs": "0.8.4",
-    "terser": "5.12.1",
+    "terser": "5.14.2",
     "typescript": "2.9.2",
     "typography": "0.16.21",
     "uuid": "3.3.3",
