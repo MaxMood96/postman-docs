@@ -35,7 +35,7 @@
     "gatsby-remark-check-links": "2.1.0",
     "gatsby-remark-prismjs": "6.17.0",
     "gatsby-remark-responsive-iframe": "5.17.0",
-    "gatsby-source-filesystem": "4.17.0",
+    "gatsby-source-filesystem": "4.21.0",
     "gatsby-transformer-remark": "5.17.0",
     "gatsby-transformer-sharp": "4.17.0",
     "glob": "7.1.7",
