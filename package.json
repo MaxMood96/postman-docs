@@ -15,7 +15,7 @@
     "bootstrap": "4.5.0",
     "dotenv": "8.6.0",
     "eslint-plugin-jest": "22.21.0",
-    "gatsby": "4.13.0",
+    "gatsby": "5.4.0",
     "gatsby-cli": "4.13.0",
     "gatsby-plugin-algolia": "0.26.0",
     "gatsby-plugin-env-variables": "2.2.0",
