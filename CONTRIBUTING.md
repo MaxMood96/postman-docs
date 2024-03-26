@@ -1,6 +1,6 @@
 # Contributing
 
-When contributing to this repository, please first discuss the change you wish to make at [Issues](https://github.com/postmanlabs/postman-docs/issues).
+If you'd like to contribute to this repository, please first contact [Postman's docs team](mailto:docs-feedback@postman.com).
 
 We have a [code of conduct](https://www.postman.com/code-of-conduct) that you're expected to follow in all your interactions with the project.
 
@@ -20,7 +20,7 @@ If you run into issues when running the Learning Center locally, try the followi
 1. Enter `rm -rf node_modules; npm i` to remove all existing packages and perform a fresh install.
 1. Enter `gatsby clean` to clear the cache.
 
-If you still have issues running the Learning Center locally, feel free to [open an issue](https://github.com/postmanlabs/postman-docs/issues).
+If you still have issues running the Learning Center locally, contact [Postman's docs team](mailto:docs-feedback@postman.com).
 
 ### Workflow
 
@@ -32,7 +32,7 @@ We follow [Git Flow](https://guides.github.com/introduction/flow/) for changes t
 1. Navigate to the new directory git created: `cd postman-docs`
 1. Check out the `develop` branch: `git checkout develop`
 1. Run `npm install` to add all dependencies.
-1. Create a new branch for your work based on develop: `git checkout -b <YOUR BRANCH NAME>` Your branch name should be something descriptive of the changes you wish to make, and can include the issue number this change is associated with. Example: `feature/1234-update-mock-api-docs`
+1. Create a new branch for your work based on develop: `git checkout -b <YOUR BRANCH NAME>` Your branch name should be something descriptive of the changes you wish to make, and can include the issue number this change is associated with. Example: `feature/1234-update-mock-api-docs`. If the change is related to a Jira, include the Jira number in the branch name.
 1. Make your changes. The Learning Center's documentation is built from the `.md` files in the `/src/pages/docs` folder of the repo.
 1. Check your files are valid markdown by running `npm run test:mdlint` and resolve any errors.
 1. When you're ready to apply your changes, push your changed files to your forked repo:
@@ -59,7 +59,7 @@ Upon approval your PR will be merged into develop for further verification and t
 
 [homepage]: https://learning.postman.com
 
-> __Staff and Repo Collaborators__: Please only push to `develop` when changes are ready to publish. The `develop` branch is intended only as a last check to see edits live on the web in a production type build environment before publishing—changes shouldn't sit on the `develop` branch for long before pushing to `master`.
+> __Staff and Repo Collaborators__: Please only push to `develop` when changes are ready to publish. The `develop` branch is intended only as a last check to see edits live on the web in a production type build environment before publishing—changes shouldn't sit on the `develop` branch for long before pushing to `main`.
 
 ## Adding/Editing Links
 
@@ -95,12 +95,12 @@ If you would like to add, edit, or replace images you are welcome to do so. Ther
 Images hosted by Postman should always be referenced as follows:
 
 ``` bash
-https://assets.postman.com/postman-docs/<filename>.png
+https://assets.postman.com/postman-docs/<filename>.jpg
 ```
 
 ## Adding and editing code blocks
 
-If you would like to add, edit or replace Markdown code blocks you are welcome to do so. There are two things in which you need to know:
+If you would like to add, edit, or replace Markdown code blocks you are welcome to do so. There are two things you need to know:
 
 * We use Prism.js in a Gatsby plugin [gatsby-remark-prismjs](https://www.gatsbyjs.com/plugins/gatsby-remark-prismjs/#usage-in-markdown "See usage in markdown documentation")
 * Add a language declaration after the opening three backticks ` ``` ` For example:
@@ -131,12 +131,12 @@ Please note that Algolia search won't work when running the app locally. If you 
 
 ## Right sidebar - recent blog posts
 
-The right sidebar has a feature flag for pulling in up to three contextual, recent blog posts based on a tag. This functionality and flag can be found in the front matter of the doc `.md` files. It utilizes our webhook and backend-for-frontend (BFF) service to source the latest 100 blog posts from blog.postman.com.
+The right sidebar has a feature flag for pulling in up to three contextual, recent blog posts based on a tag. This functionality and flag can be found in the front matter of the doc `.md` files. It uses our webhook and backend-for-frontend (BFF) service to source the latest 100 blog posts from blog.postman.com.
 
 Two example docs using `dynamic_blog`:
 
-* `/docs/running-collections/intro-to-collection-runs.md`
-* `/docs/running-collections/scheduling-collection-runs.md`
+* `/docs/collections/running-collections/intro-to-collection-runs.md`
+* `/docs/collections/running-collections/scheduling-collection-runs.md`
 
 ### Using the dynamic blog posts feature
 
@@ -149,11 +149,11 @@ You need to get the `.env.development` file from Marketing Engineering, and plac
 
 #### Updating from hard-coded blog links to dynamic
 
-Open the doc file `.md` that you want to edit right sidebar, and look for `contextual_links` in front matter. Look for the presence of existing recent Blogs posts like:
+Open the doc file `.md` in which you want to edit the right sidebar, and look for `contextual_links` in front matter. Look for the presence of existing recent Blogs posts like:
 
 ~~~~
 - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
 - type: link
     name: "Check for broken links on your website using a Postman Collection"
     url: "https://blog.postman.com/check-for-broken-links-on-your-website-using-a-postman-collection/"
@@ -163,7 +163,7 @@ Replace with:
 
 ~~~~
 - type: dynamic_blog
-name: "Blog Posts"
+name: "Blog posts"
 blog_tag: "PUT_TAG_NAME_HERE"
 ~~~~
 
@@ -171,11 +171,11 @@ NOTE: `type: link` and `type: url` are being replaced with `blog_tag: “PUT_TAG
 
 #### Adding new dynamic links
 
-Open doc file that you want edit right sidebar, and add:
+Open the doc file in which you want to edit the right sidebar, and add:
 
 ~~~~
 - type: dynamic_blog
-    name: "Blog Posts"
+    name: "Blog posts"
     blog_tag: "PUT_TAG_NAME_HERE"
 ~~~~
 
@@ -212,11 +212,11 @@ The list of acceptable values for `blog_tag` are the slugs for tags in the blog.
 * `workflow`
 * `workspaces`
 
-NOTE: these tags pull from the latest 100 blog posts. We display **up to 3** blog posts for that tag. A return of zero or malformed tag enum will collapse / hide section.
+NOTE: these tags pull from the latest 100 blog posts. We display **up to 3** blog posts for that tag. A return of zero or malformed tag enum will collapse the section.
 
 ## Running checks locally
 
-Before creating a PR we STRONGLY recommend to running the following test locally to check that all changes will pass our linters:
+Before creating a PR we recommend running the following test locally to check that all changes will pass our linters:
 
 * `npm run test`  -> runs the Unit testing
 * `npm run test:mdlint` -> runs the Markdown linter

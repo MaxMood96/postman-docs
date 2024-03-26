@@ -4,12 +4,6 @@ order: 139
 updated: 2022-03-16
 page_id: "onelogin"
 warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Configuring SSO for a team"
-    url: "/docs/administration/sso/admin-sso/"
 ---
 
 > **[SSO with OneLogin is available on Postman Enterprise plans.](https://www.postman.com/pricing)**
@@ -56,6 +50,6 @@ To continue configuring your Postman app, do the following:
 
 ## Next steps
 
-Now that you have set up SSO with OneLogin, you might also be interested in setting up SCIM provisioning:
+Now that you have set up SSO with OneLogin, you can learn about setting up SCIM provisioning:
 
 * To learn more, visit [Configuring SCIM with OneLogin](/docs/administration/scim-provisioning/configuring-scim-with-onelogin/). (_[Enterprise teams](https://www.postman.com/pricing/) only._)

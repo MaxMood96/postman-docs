@@ -1,30 +1,20 @@
 ---
-title: "Security audit reports"
-updated: 2022-05-19
-warning: false
-contextual_links:
-  - type: section
-    name: "Additional Resources"
-  - type: subtitle
-    name: "Blog Posts"
-  - type: link
-    name: "Introducing New Postman Reports for Enterprises"
-    url: "https://blog.postman.com/introducing-new-postman-reports-for-enterprises/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Validating APIs against schema"
-    url: "/docs/designing-and-developing-your-api/developing-an-api/validating-elements-against-schema/"
+title: "View reports about detected, unresolved, and resolved secrets"
+updated: 2023-12-15
 ---
 
-> [__Reports are available on all Postman Enterprise plans.__](https://www.postman.com/pricing)
+> **[Secret Scanner reports are available on Postman Enterprise Ultimate plans.](https://www.postman.com/pricing/)**
 
-The __Security Audit__ report provides metrics including an overview of your total collections scanned, collections with exposed tokens, total exposed tokens, and separate visualizations of exposed tokens by type and over time. This report consolidates the findings of the Postman token scanner from public documentation. Learn more about the Postman [Token Scanner](/docs/administration/token-scanner/).
+The **Secret Scanner** report provides Team Admins and [Super Admins](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) with insights into the status of detected secrets, enabling you to make informed decisions that improve the security and compliance of your Postman team. The report covers detected, unresolved, and resolved secrets within your organization that have been found by Postman's [Secret Scanner](/docs/administration/managing-your-team/secret-scanner/).
 
-The **Security Audit** report provides the following information for the past 30 days:
+To view the report, open Postman and select **Team > Team Settings** in the Postman header. Select **Secret Scanner** in the left sidebar, then select the **Reports** tab.
 
-* __Published documentation scanned__ - The number of published documentation sets that were reviewed by the Token Scanner.
-* __Published documentation with exposed tokens__ - The number of published documentation sets that have an exposed token.
-* __Total exposed tokens__ - The number of tokens that are exposed across all published documentation sets.
-* __Exposed tokens by type__ - The number of exposed tokens by type.
-* __Exposed tokens over time__ - The number of tokens that were exposed each day.
+You can filter the report by time and by workspace visibility. The report provides the following information:
+
+* **Detected and resolved secrets** - The number of detected and resolved secrets found by the Secret Scanner.
+* **Unresolved secrets based on elements visibility** - The number of unresolved secrets found in public and team elements.
+* **Workspaces with unresolved secrets** - A list of workspaces containing unresolved secrets, including each workspace's number of unresolved secrets and visibility status.
+* **Unresolved secrets based on secret type** - A list of secret types and how often they've been detected by the Secret Scanner.
+* **Published documentation with unresolved secrets** - A list of published documentation containing unresolved secrets, including a link to the collection, the date it was published, the user who published it, and the number of unresolved secrets within it.
+
+For more details, select an element to open the **Secrets detected** tab of the [Secret Scanner dashboard](https://go.postman.co/settings/team/secret-scanner/findings). **Secrets detected** will automatically include any workspace or secret type filters based on your selected element, enabling you to take immediate action towards resolution.

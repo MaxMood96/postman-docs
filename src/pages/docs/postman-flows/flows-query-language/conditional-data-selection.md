@@ -1,21 +1,34 @@
 ---
-title: "Conditional data selection"
-updated: 2022-11-16
+title: "Select conditional data in FQL"
+updated: 2023-03-29
+contextual_links:
+  - type: section
+    name: "Additional resources"
+  - type: subtitle
+    name: "Videos"
+  - type: link
+    name: "Flows Query Language (FQL) | Postman Flows"
+    url:  "https://youtu.be/4KDQM8gv7PM"
+  - type: subtitle
+    name: "Blog posts"
+  - type: link
+    name: "Advanced FQL expressions in Postman Flows"
+    url: "https://blog.postman.com/advanced-fql-expressions-in-postman-flows/"
 ---
 
-You can use [Flows Query Language](/docs/postman-flows/flows-query-language/introduction-to-fql/) (FQL) to filter for specific data in your responses. Sample data and FQL examples are below.
+You can use [Flows Query Language](/docs/postman-flows/flows-query-language/introduction-to-fql/) (FQL) to filter for specific data in your responses. Multiple responses return in an array. Single responses return as a single record. Sample data and FQL examples are below.
 
 ## Contents
 
 * [Example JSON](#example-json)
-* [Filter for a customer's recurring subscription payments](#filter-for-a-customers-recurring-subscription-payments)
-* [Filter for the invoice numbers of recurring payments](#filter-for-the-invoice-numbers-of-recurring-payments)
-* [When your filter matches a single record](#when-your-filter-matches-a-single-record)
-* [Checking if a field contains a value](#checking-if-a-field-contains-a-value)
+* [Filter query results for objects with specific key-value pairs](#filter-query-results-for-objects-with-specific-key-value-pairs)
+* [Navigate your filtered results](#navigate-your-filtered-results)
+* [Return a single record](#return-a-single-record)
+* [Check if a field has a specific value](#check-if-a-field-has-a-specific-value)
 
 ## Example JSON
 
-The following examples use the following JSON data returned by an endpoint:
+The examples below use this JSON data:
 
 ``` json
     {
@@ -54,18 +67,21 @@ The following examples use the following JSON data returned by an endpoint:
     }
 ```
 
-## Filter for a customer's recurring subscription payments
+## Filter query results for objects with specific key-value pairs
 
-### FQL
+The example below filters for objects in the `payments` array that have the key-value pair `"description": "recurring subscription"`.
 
-``` javascript
-payments[description='recurring subscription']
-```
-
-### Result
-
- ``` json
- [
+<table class="code-ref-table">
+<tbody>
+<tr>
+<td>FQL</td>
+<td>payments[description="recurring subscription"]</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>
+<pre>
+[
     {
         "invoice_number": "101301",
         "date": "2022-09-11T16:12:34.494Z",
@@ -79,48 +95,80 @@ payments[description='recurring subscription']
         "amount": 110.48
     }
 ]
-```
+</pre>
+</td>
+</tr>
+</tbody>
+</table>
 
-## Filter for the invoice numbers of recurring payments
+## Navigate your filtered results
 
-### FQL
+FQL uses the same syntax to navigate filtered query results as it does to navigate JSON data. The example below gets the values from the `invoice.number` fields in the `payments` array.
 
- ``` javascript
- payments[description='recurring subscription'].invoice_number
- ```
+<table class="code-ref-table">
+<tbody>
+<tr>
+<td>FQL</td>
+<td>payments[description="recurring subscription"].invoice_number</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>
+["101301","101303"]
+</td>
+</tr>
+</tbody>
+</table>
 
-### Result
+## Return a single record
 
- ```json
- ["101301","101303"]
- ```
+When a filter has a single result, it returns as a record instead of an array. The filter below returns a single result as a record.
 
-## When your filter matches a single record
+<table class="code-ref-table">
+<tbody>
+<tr>
+<td>FQL</td>
+<td> payments[description="recurring subscription deluxe"].invoice_number</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>
+["101304"]
+</td>
+</tr>
+</tbody>
+</table>
 
-It returns a single record, not an array.
+## Check if a field has a specific value
 
-### FQL
+FQL can check if your query results have a specific key-value pair and return `true` or `false`. The example below checks the first item in the `payments` array for the key-value pair `"description": "recurring"`.
 
- ``` javascript
- payments[description='recurring subscription deluxe'].invoice_number
- ```
+<table class="code-ref-table">
+<tbody>
+<tr>
+<td>FQL</td>
+<td>$contains(payments[0].description, "recurring")</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
 
-### Result
+## Get only unique payment amounts
 
-``` json
-"101304"
-```
+The `$distinct` function returns a single instance of any recurring values. In the example below, the `110.48` value appears twice in the data, but only once in the result.
 
-## Checking if a field contains a value
-
-### FQL
-
-``` javascript
-$contains(payments[0].description, 'recurring')
-```
-
-### Result
-
-``` json
-true
-```
+<table class="code-ref-table">
+<tbody>
+<tr>
+<td>FQL</td>
+<td>$distinct(payments.amount)</td>
+</tr>
+<tr>
+<td>Result</td>
+<td>[110.48, 24.49, 35.56]</td>
+</tr>
+</tbody>
+</table>

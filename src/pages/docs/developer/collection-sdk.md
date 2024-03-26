@@ -1,27 +1,14 @@
 ---
-title: "Collection SDK"
+title: "Create and manage collections using the Collection SDK"
 order: 148
 updated: 2022-07-20
 page_id: "collection_sdk"
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Running collections on the command line"
-    url: "/docs/running-collections/using-newman-cli/command-line-integration-with-newman/"
-
 warning: false
-
 ---
 
-The Collection SDK is a Node.js module that allows you to work with Postman [Collections](/docs/sending-requests/intro-to-collections/) and build them dynamically into your API project pipeline.
+The Collection SDK is a Node.js module that allows you to work with Postman [Collections](/docs/sending-requests/create-requests/intro-to-collections/) and build them dynamically into your API project pipeline.
 
-With the Collection SDK, you can create and manipulate collections, exporting them in a format that you can then integrate with other utilities, including Postman and [Newman](/docs/running-collections/using-newman-cli/command-line-integration-with-newman/), Postman's command-line collection runner.
+With the Collection SDK, you can create and manipulate collections, exporting them in a format that you can then integrate with other utilities, including Postman and [Newman](/docs/collections/using-newman-cli/command-line-integration-with-newman/), Postman's command-line collection runner.
 
 ## Contents
 
@@ -51,6 +38,6 @@ Get started with the Collection SDK from the [project repo](https://github.com/p
 
 ## Next steps
 
-If you're working with the Collection SDK to automate part of your collection run workflow, you might also want to integrate your Collection SDK development with Newman, Postman's command-line collection runner:
+If you're working with the Collection SDK to automate part of your collection run workflow, you can integrate your Collection SDK development with Newman, Postman's command-line collection runner:
 
-* To learn more about integrating your Collection SDK development with Newman, visit [Running collections on the command line with Newman](/docs/running-collections/using-newman-cli/command-line-integration-with-newman/).
+* To learn more about integrating your Collection SDK development with Newman, visit [Running collections on the command line with Newman](/docs/collections/using-newman-cli/command-line-integration-with-newman/).

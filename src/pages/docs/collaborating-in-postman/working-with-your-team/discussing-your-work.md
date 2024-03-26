@@ -1,149 +1,138 @@
 ---
-title: "Discussing your work"
-order: 73.3
-updated: 2021-04-15
-page_id: "discussing_your_work"
+title: "Comment on collections, folders, and requests"
+updated: 2023-11-15
 contextual_links:
   - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
+    name: "Collaboration & Documentation | Postman Enterprise"
+    url: "https://youtu.be/u1yEOo0dPfk"
+  - type: link
     name: "Inline Comments | Postman Level Up"
     url: "https://www.youtube.com/watch?v=fkYiyCj43uk&list=PLM-7VG-sgbtC5tNXxd28cmePSa9BYwqeU&index=6"
-warning: false
 ---
 
-You can leave comments on APIs, collections, and requests to collaborate with your teammates. You can tag your collaborators in comments to let them know that you have questions or feedback.
+Use comments to discuss your work with your teammates in Postman. You can add comments to collections, folders, requests, examples, and pull requests. Reply to a comment to keep the discussion going, or resolve a comment if it's been addressed. If you have questions or feedback, you can let your teammates know by mentioning them in your comments.
+
+> You can also add comments to APIs and API definitions in Postman. Learn more about [commenting on APIs](/docs/designing-and-developing-your-api/managing-apis/#commenting-on-apis).
 
 ## Contents
 
-* [Commenting on a collection](#commenting-on-a-collection)
-* [Commenting on a request](#commenting-on-a-request)
-* [Commenting on a folder](#commenting-on-a-folder)
-* [Reading comments](#reading-comments)
-* [Editing comments](#editing-comments)
-* [Resolving comments](#resolving-comments)
-* [Deleting comments](#deleting-comments)
-* [Tagging members in comments](#tagging-members-in-comments)
-* [Using Markdown in comments](#using-markdown-in-comments)
+* [Add comments](#add-comments)
+    * [Add inline comments to a request or example](#add-inline-comments-to-a-request-or-example)
+    * [Add inline comments to a pull request](#add-inline-comments-to-a-pull-request)
+    * [Edit, delete, or link to a comment](#edit-delete-or-link-to-a-comment)
+* [Reply to comments](#reply-to-comments)
+* [Resolve comments](#resolve-comments)
+* [Mention teammates in comments](#mention-teammates-in-comments)
 
-> Postman supports comments on requests and request parameters.
+## Add comments
 
-## Commenting on a collection
+You can add comments to a collection in Postman. You can also add comments to folders, requests, examples, or pull requests in collections. When you add a comment, Postman notifies other collection contributors about your comment.
 
-You can leave comments on collections from Postman.
+> You must have access to a collection to add comments to it.
 
-> Team members must have access to the collection in question in order to post comments.
+To add a comment to a collection, folder, request, example, or pull request, do the following:
 
-1. Sign in to [Postman](https://go.postman.co/).
-2. At the top, select a **Workspace** and then select the **Collections** tab.
-3. Open the collection you want to leave your comment on and select **Comments** next to the name of the collection.
+1. Select **Collections** in the sidebar and select the collection, folder, request, example, or pull request you want to comment on.
+1. Select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar and enter your comment.
 
-![Add comments on collection](https://assets.postman.com/postman-docs/commenting-on-a-collection-v8.gif)
+    > Postman supports Markdown in comments. See the [Markdown Cheatsheet on GitHub](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for tips on formatting.
 
-## Commenting on a request
+1. (Optional) Select the **Watch collection** checkbox to be notified when there are changes to the collection. This option isn't available when commenting on pull requests.
 
-You can comment on requests in Postman. You can only post comments on saved requests.
+1. Select **Comment** to add your comment.
 
-You can add comments at the [request level](#adding-a-comment-on-a-request), on [request parameters](#adding-a-comment-on-request-parameters), and [within the request configuration](#adding-an-inline-comment) (request body, pre-request script, and test script).
+![Commenting on a collection](https://assets.postman.com/postman-docs/v10/commenting-on-a-collection-v10-18d.jpg)
 
-### Adding a comment on a request
+### Add inline comments to a request or example
 
-1. Go to the request you want to leave a comment on.
-2. Select the comments icon	<img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request page.
-3. Write your comment, then select **Add Comment**.
+Use inline comments to comment on a specific part of a request or example. You can add comments to parameters, headers, and request bodies. You can also add comments to parts of a pre-request script or a test script. When there are new inline comments, a notification appears on the comments icon <img alt="Inline comments icon" src="https://assets.postman.com/postman-docs/v10/icon-comments-notification-v10.jpg#icon" width="23px"> in the request pane.
 
-![Add comments on collection request](https://assets.postman.com/postman-docs/adding-a-comment-on-a-collection-request-v8.gif)
+> Before you switch to comment mode, make sure to save your changes first.
 
-### Adding a comment on request parameters
+To add an inline comment to a request or example, do the following:
 
-You can leave comments on request parameters (query parameters, path parameters, headers, request bodies of type form-data, and x-www-form-urlencoded).
+1. Open the request or example.
+1. Select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request pane to switch to comment mode.
 
-> You can only add comments on saved requests.
+    ![Switching to comment mode](https://assets.postman.com/postman-docs/v10/commenting-mode-v10-16a.jpg)
 
-1. Open the request you would like to comment on.
-2. Select the comments icon	<img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request page.
-3. Select the key, value, or description.
-4. Enter your comment, and then select **Add Comment**.
+1. Select the part of the request or example you want to comment on and enter your comment. You can select text within a query parameter, path parameter, header, and request body (**form-data**, **x-www-form-urlencoded**, and **raw**). You can also select text within a pre-request script or test script.
+1. (Optional) Select the **Watch collection** checkbox to be notified when there are changes to the collection.
+1. Select **Comment** to add your comment. If comments are associated with a change, you can select the highlighted part of the request or example to view its comments.
 
-![Add comments on request parameters](https://assets.postman.com/postman-docs/adding-a-comment-on-a-request-parameter-v8.gif)
+    ![Adding an inline comment](https://assets.postman.com/postman-docs/v10/commenting-inline-v10-16a.jpg)
 
-### Adding an inline comment
+### Add inline comments to a pull request
 
-You can add a comment on a specific part of a raw body, a pre-request script, or a test script.
+Use inline comments to comment on a change in a pull request.
 
-1. Open the request you would like to comment on.
-2. Select the comments icon	<img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request page.
-3. Open the tab where you want to leave a comment.
-4. Highlight the text you want to comment on.
-5. Enter your comment, then select **Add Comment**.
+To add an inline comment to a pull request, do the following:
 
-![Add inline comments for tests](https://assets.postman.com/postman-docs/adding-an-inline-comment-tests-v8.gif)
+1. Open the pull request.
+1. Select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> next to a change and enter your comment.
+1. Select **Comment** to add your comment. If comments are associated with a change, you can select the notification comments icon <img alt="Comments notification icon" src="https://assets.postman.com/postman-docs/v10/icon-comments-notification-v10.jpg#icon" width="23px"> next to a change to view its comments.
 
-## Commenting on a folder
+    <img alt="Add an inline comment to a pull review" src="https://assets.postman.com/postman-docs/v10/pr-add-comment-inline-v10-19.jpg"/>
 
-You can leave comments on folders in Postman.
+### Edit, delete, or link to a comment
 
-1. Open the folder you would like to comment on.
-2. Select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar.
-3. Enter your comment, then select **Add Comment**.
+You can edit or delete a comment, or a get a link to a comment you can share with others.
 
-![Adding comment on a folder](https://assets.postman.com/postman-docs/commenting-on-a-folder-v8.gif)
+1. Select a collection, folder, request, example, or pull request in the sidebar, then select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar.
+1. Select the more actions icon <img alt="More actions icon" src="https://assets.postman.com/postman-docs/icon-more-actions-v9.jpg#icon" width="16px"> next to a comment and do one of the following:
 
-## Reading comments
+    * Select **Copy link** to copy a direct link to the comment to your clipboard.
+    * Select **Edit** to make changes to the comment.
+    * Select **Delete** to delete the comment.
 
-You can read comments made by teammates on requests and request parameters in Postman.
+<img alt="Managing a comment" src="https://assets.postman.com/postman-docs/v10/commenting-managing-v10-16.jpg" width="443px" />
 
-You can read comments made on the request and on request parameters from the app.
+> If you're a [Workspace Admin](/docs/collaborating-in-postman/roles-and-permissions/#team-roles), you can delete contributor comments, but you can't edit contributor comments.
 
-1. In Postman, open the request that has the comments you want to review.
-2. Select the comments icon	<img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request page.
-   * You can filter inline comments by **Open Comments**, **Resolved Comments**, or both.
+## Reply to comments
 
-## Editing comments
+You can reply to a comment to keep the conversation going. Replies are grouped with the original comment, so you can have more than one comment thread on a collection, folder, request, example, or pull request. When you reply to a comment, the user who added the comment will receive a notification about your reply.
 
-You can make changes to comments you've already posted. Other team members can't edit your comments.
+To reply to a comment, do the following:
 
-1. In Postman, open the collection with the comment you want to edit.
-2. Find the comment and select **Comment** > **Edit**.
+1. Select a collection, folder, request, example, or pull request in the sidebar, then select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar.
+1. Select the comment you want to reply to and enter your reply.
 
-<img src="https://assets.postman.com/postman-docs/editing-a-comment-v8.jpg" alt="Edit comment" width="395px">
+    > If you select an inline comment or open a link to an inline comment, Postman automatically switches to comment mode and opens the comment in context on the request.
 
-## Resolving comments
+1. (Optional) Select the **Watch collection** checkbox to be notified when there are changes to the collection. This option isn't available when commenting on pull requests.
 
-You can resolve comments made on request parameters when you no longer want them to display.
+1. Select **Reply**.
 
-1. Open the collection with the comment or comments you want to resolve.
-2. Select the comments icon	<img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the request page.
-3. Select **Resolve** next to the comment or comments you would like to resolve.
+    <img alt="Replying to a comment" src="https://assets.postman.com/postman-docs/v10/commenting-replying-v10-16.jpg" width="443px" />
 
-![Resolve comments](https://assets.postman.com/postman-docs/resolving-a-comment-v8.gif)
+If you're replying to a comment on a request or example, you can also select the highlighted part of the request or example.
 
-## Deleting comments
+<img alt="Reply to an inline comment on a request or example" src="https://assets.postman.com/postman-docs/v10/request-reply-to-inline-comment-v10-19.jpg"/>
 
-1. In Postman, open the collection with the comment you want to delete.
-2. Find the comment and select the delete icon <img alt="Delete icon" src="https://assets.postman.com/postman-docs/icon-delete-v9.jpg#icon" width="12px">.
+If you're replying to a comment on a change in a pull request, you can also select the notification comments icon <img alt="Comments notification icon" src="https://assets.postman.com/postman-docs/v10/icon-comments-notification-v10.jpg#icon" width="23px"> next to a change.
 
-<img src="https://assets.postman.com/postman-docs/deleting-a-comment-v8.jpg" alt="Delete comment" width="399px">
+<img alt="Reply to an inline comment on a pull review" src="https://assets.postman.com/postman-docs/v10/pr-reply-to-inline-comment-v10-19.jpg"/>
 
-> For moderation purposes, users with the [Team Admin role](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) can delete comments made by anyone, but can't change comments.
+## Resolve comments
 
-## Tagging members in comments
+You can resolve a comment after it's been addressed.
 
-When you leave feedback or a question for a specific teammate, you can let them know by tagging them in your comment.
+1. Select a collection, folder, request, example, or pull request in the sidebar, then select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar.
+1. Select the resolve icon <img alt="Resolve comment icon" src="https://assets.postman.com/postman-docs/v10/icon-resolve-comment-v10.jpg#icon" width="18px"> to resolve a comment and any associated replies.
 
-1. In Postman, open the collection or request you want to leave your comment on.
-2. Select **Comments** and write your message.
-3. To tag your teammate, enter "@" and choose their name from the list.
-4. Select **Add comment**.
+<img alt="Resolving a comment" src="https://assets.postman.com/postman-docs/v10/commenting-resolving-v10-16.jpg" width="443px" />
 
-Your teammate will be notified in the app or with an email that they've been tagged in a comment. Select the notifications icon <img alt="Notifications icon" src="https://assets.postman.com/postman-docs/icon-notification-bell-v9.jpg#icon" width="18px"> in the Postman header to view in-app notifications.
+> You can't undo resolving a comment, but you can view resolved comments by selecting the filter icon <img alt="Filter icon" src="https://assets.postman.com/postman-docs/icon-filter.jpg#icon" width="16px"> in the comments pane.
 
-> If your teammate has turned off notifications they won't be notified. If they don't have access to the collection they've been tagged on, they'll need to request access before they can read the comment.
+## Mention teammates in comments
 
-<img src="https://assets.postman.com/postman-docs/check-comment-notifications-v8.jpg" alt="Notification bell" width="398px">
+If you leave feedback or a question for a specific teammate, you can let them know by mentioning them in your comment. To mention a teammate in a comment, enter `@` followed by their name, then select the person from the list.
 
-## Using Markdown in comments
+When you mention a teammate in a comment, Postman sends them a notification about it. Select the notifications icon <img alt="Notifications icon" src="https://assets.postman.com/postman-docs/icon-notification-bell-v9.jpg#icon" width="18px"> in the Postman header to view in-app notifications.
 
-Postman comments support Markdown. For more information on formatting using Markdown refer to [Markdown in API Documentation](https://documenter.postman.com/view/33232/markdown-in-api-documentation/JsGc?version=latest).
+> If your teammate doesn't have access to the collection they've been mentioned in, they'll need to [request access](/docs/collaborating-in-postman/requesting-access-to-elements/) before they can read the comment.

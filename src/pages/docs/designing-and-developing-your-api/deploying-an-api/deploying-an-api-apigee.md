@@ -1,17 +1,11 @@
 ---
-title: 'Deploying to an Apigee API gateway'
+title: "Manage API deployments to Apigee in Postman"
 updated: 2022-09-15
-search_keyword: "deploy, apigee, api gateway"
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "API development overview"
-    url: "/docs/designing-and-developing-your-api/the-api-workflow/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
-    name: "Related Blog Posts"
+    name: "Blog Posts"
   - type: link
     name: "Introducing Powerful Integrations"
     url: "https://blog.postman.com/the-new-postman-api-platform/"
@@ -36,7 +30,7 @@ To create a custom role, do the following:
 1. Log on to the [Google Cloud Platform console](https://console.cloud.google.com/home/dashboard) and go to your project settings.
 1. Select **Roles** in the left navigation pane, and then select **+ Create Role**.
 1. Enter the required details for the role, and then select **+ Add permissions**.
-1. Select the check box next to the following permission properties (enter a property name to locate it in the list):
+1. Select the checkbox next to the following permission properties (enter a property name to locate it in the list):
 
     * `apigee.deployments.list`
     * `apigee.environments.list`

@@ -1,74 +1,53 @@
 ---
-title: "Bitbucket"
-order: 164.1
-updated: 2021-09-15
-page_id: "bitbucket"
-warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Custom Webhooks"
-    url: "/docs/integrations/webhooks/"
-  - type: link
-    name: "Slack Integration"
-    url: "/docs/integrations/available-integrations/slack/"
+title: "Integrate Postman with Bitbucket"
+updated: 2023-10-04
 ---
 
-You can back up your team's Postman Collections with Postman's Bitbucket integration.
+You can back up your Postman Collections to your Bitbucket repository. Once the integration is configured, any changes to your collection in Postman will also appear in your Bitbucket repository.
 
 ## Contents
 
 * [API sync with Bitbucket](#api-sync-with-bitbucket)
 * [Backing up collections on Bitbucket](#backing-up-collections-on-bitbucket)
 
-    * [Configuring a Bitbucket integration](#configuring-a-bitbucket-integration)
-
 ## API sync with Bitbucket
 
-Postman 9.0 introduced the ability to connect a git repository to an API. Instead of using an integration, you can directly connect a Bitbucket repo to an API in the API Builder. This provides two-way sync of schemas and associated collections, plus adds features for syncing branches and release tags between Postman and your repo. For more information on the repo sync feature, see [Versioning APIs](/docs/designing-and-developing-your-api/versioning-an-api/).
+With Postman v10, you can connect a Bitbucket repository to an API in the API Builder. Once connected, you can sync your API's definition and associated collections between Postman and Bitbucket. You can switch branches, pull changes from the repository, and push changes to the repository, all from within Postman. To learn more about syncing your API with Bitbucket, see [API version control overview](/docs/designing-and-developing-your-api/versioning-an-api/versioning-an-api-overview/).
 
 ## Backing up collections on Bitbucket
 
-You can back up your Postman Collections to your Bitbucket repository. Once the integration is configured, any changes to your collection in Postman will also appear in Bitbucket.
+To back up your collections to a Bitbucket repository, do the following:
 
-### Configuring a Bitbucket integration
+1. From the **[Home](https://go.postman.co/home)** page, select **[Integrations](https://go.postman.co/integrations)**.
 
-From the **[Home](https://go.postman.co/home)** page select **[Integrations](https://go.postman.co/integrations)**.
+    <img alt="Home page and integrations" src="https://assets.postman.com/postman-docs/v10/home-integrations-v10.jpg" width="350px">
 
-<img alt="Home page and integrations" src="https://assets.postman.com/postman-docs/v10/home-integrations-v10.jpg" width="390px">
+1. Select **[Browse All Integrations](https://go.postman.co/integrations/browse?category=all)**.
 
-Search and select **Bitbucket**.
+1. Search and select **Bitbucket**.
 
-![Bitbucket search page](https://assets.postman.com/postman-docs/bitbucket-search-bb.jpg)
+1. Next to **Backup a collection**, select **Add Integration**.
 
-Select **Add Integration**.
+    ![Bitbucket details page](https://assets.postman.com/postman-docs/v10/bitbucket-add-integration-v10.jpg)
 
-![Bitbucket details page](https://assets.postman.com/postman-docs/bitbucket-add-integration-bb.jpg)
+1. Enter your Bitbucket authentication and select **Authenticate and Proceed**.
 
-Enter your Bitbucket authentication and select **Authenticate and Proceed**.
+    > App passwords are different from account passwords. Learn [how to create an app password in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/).
 
-> App passwords are different from account passwords. Learn [how to create an app password in Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/app-passwords/).
+    <img alt="Add Bitbucket integration" src="https://assets.postman.com/postman-docs/v10/add-integration-bitbucket-v10.18.jpg" width="450px">
 
-![Bitbucket creation](https://assets.postman.com/postman-docs/bitbucket-create-bb.jpg)
+1. Select your collection to back up, the repository you'd like to back it up to, and choose the directory, filename, and branch. Select **Add Integration**.
 
-Select your collection to back up, the repository you'd like to back it up to, and designate the directory, filename, and branch. Select **Add Integration**.
+    <img alt="Configure Bitbucket integration" src="https://assets.postman.com/postman-docs/v10/add-integration-bitbucket-form-v10.18.jpg" width="450px">
 
-![Bitbucket configuration](https://assets.postman.com/postman-docs/bitbucket-configure-bb.jpg)
+Postman often checks your collection for changes. If Postman identifies changes when it checks your collection, the changes automatically commit to your repository in JSON format.
 
-Your new integration will now appear in a list along with previously created integrations.
-
-![Configured integrations](https://assets.postman.com/postman-docs/bitbucket-add-integration-bb.jpg)
-
-To confirm this integration, go to your [Bitbucket dashboard](https://bitbucket.org/dashboard/overview) > **Repositories**. Select your repository, then select **Commits**.
+To view your collections in Bitbucket, go to your [Bitbucket dashboard](https://bitbucket.org/dashboard/overview) > **Repositories**. Select your repository, then select **Commits**.
 
 ![Bitbucket commits list](https://assets.postman.com/postman-docs/bitbucket-commits.jpg)
 
 You can select a commit to view your stored collection in JSON format.
 
 ![Bitbucket collection](https://assets.postman.com/postman-docs/bitbucket-collection.jpg)
+
+> **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a collection by opening the collection and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).

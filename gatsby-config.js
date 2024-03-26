@@ -80,7 +80,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        excludes: ['/search/']
+        excludes: ['/search/', '/administration/keep-out']
       }
     },
     {
@@ -116,7 +116,7 @@ module.exports = {
       resolve: 'gatsby-plugin-gdpr-cookies',
       options: {
         googleAnalytics: {
-          trackingId: 'UA-43979731-4',
+          trackingId: 'G-CX7P9K6W67',
           anonymize: true,
         },
         environments: ['production', 'development'],
@@ -143,10 +143,11 @@ module.exports = {
         appId: process.env.GATSBY_ALGOLIA_APP_ID,
         apiKey: process.env.ALGOLIA_ADMIN_KEY,
         queries,
+        dryRun: false, // default: false, only calculate which objects would be indexed, but do not push to Algolia
         chunkSize: 10000, // default: 1000
-        enablePartialUpdates: true, // only index new, changed, deleted records
-        matchFields: ['excerpt', 'contextual_links', 'search_keyword', 'headings', 'fields', 'modified'],
-        concurrentQueries: false,
+        enablePartialUpdates: false, // only index new, changed, deleted records
+        matchFields: ['title', 'headings', 'internal', 'excerpt', 'contextual_links', 'search_keyword',  'slug', 'content', 'objectID', 'earlyAccess', 'early_access'],
+        // concurrentQueries: false, //queries run sequentially to avoid hanging builds
       },
     },
   ],

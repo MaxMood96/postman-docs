@@ -1,24 +1,22 @@
 ---
 title: "Postman CLI command options"
 updated: 2022-10-18
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Postman CLI overview"
-    url: "/docs/postman-cli/postman-cli-overview/"
-  - type: link
-    name: "Installing the Postman CLI"
-    url: "/docs/postman-cli/postman-cli-installation/"
-  - type: section
-    name: "Next steps"
-  - type: link
-    name: "Running a collection with the Postman CLI"
-    url: "/docs/postman-cli/postman-cli-run-collection/"
 warning: false
 tags:
   - "Postman CLI"
-
+contextual_links:
+  - type: section
+    name: "Additional resources"
+  - type: subtitle
+    name: "Videos"
+  - type: link
+    name: "Run collections with Postman CLI | The Exploratory"
+    url: "https://youtu.be/DKxCVo1_ELg"
+  - type: subtitle
+    name: "Blog posts"
+  - type: link
+    name: "Streamline your API release process with the Postman CLI"
+    url: "https://blog.postman.com/streamline-your-api-release-process-with-the-postman-cli/"
 ---
 
 Commands and options for using the Postman CLI.
@@ -26,9 +24,10 @@ Commands and options for using the Postman CLI.
 ## Contents
 
 * [Basic command line options](#basic-command-line-options)
-* [Logging and and logging out](#logging-in-and-logging-out)
+* [Signing in and out](#signing-in-and-out)
 * [Running collections](#running-collections)
 * [Governance and security](#governance-and-security)
+* [Publishing an API version](#publishing-an-api-version)
 
 ## Basic command line options
 
@@ -49,13 +48,13 @@ postman -v
 | `--help`, `-h` | Returns information about Postman CLI commands and options.|
 | `--version`, `-v`| Returns the version number for the Postman CLI.|
 
-## Logging in and logging out
+## Signing in and out
 
-You can use the Postman CLI to log in and out of Postman with the `login` and `logout` commands, described below:
+You can use the Postman CLI to sign in and out of Postman with the [`login`](#postman-login) and [`logout`](#postman-logout) commands.
 
 ### postman login
 
-This command authenticates the user and locally caches the [Postman API key](/docs/developer/intro-api#generating-a-postman-api-key). `login` requires one option, `--with-api-key`, that accepts the Postman API key. The `login` command is required only once per session. Once you've logged in, you remain logged in until you use the `logout` command or your Postman API key expires.
+This command authenticates the user and locally caches the [Postman API key](/docs/developer/intro-api#generating-a-postman-api-key). `login` requires one option, `--with-api-key`, that accepts the Postman API key. The `login` command is required only once per session. Once you've signed in, you remain signed in until you use the `logout` command or your Postman API key expires.
 
 #### Example
 
@@ -65,7 +64,7 @@ postman login --with-api-key ABCD-1234-1234-1234-1234-1234
 
 ### postman logout
 
-This command logs you out of Postman and deletes the stored API key.
+This command signs you out of Postman and deletes the stored API key.
 
 #### Example
 
@@ -102,13 +101,13 @@ postman collection run 12345678-12345ab-1234-1ab2-1ab2-ab1234112a12
 | Option | Details |
 |:--|:--|
 | `--bail [optional modifiers]` | Specifies whether or not to stop a collection run on encountering the first test script error. `--bail` can optionally accept two modifiers: `--folder` and `--failure`. `--folder` skips the entire collection run if there are any errors. If a test fails, `--failure` gracefully stops the collection run after completing the current test script. |
-| `--color [value]` | Controls colored CLI output. Accepts `on`, `off`, and `auto`. Default is `auto`. With `auto`, Postman CLI attempts to automatically turn color on or off based on the color support in the terminal. This behavior can be modified by using the on or off value accordingly.|
+| `--color [value]` | Controls colored CLI output. Accepts `on`, `off`, and `auto`. Default is `auto`. With `auto`, the Postman CLI attempts to automatically turn color on or off based on the color support in the terminal. This behavior can be modified by using the on or off value accordingly.|
 | `--cookie-jar [path]` | Specifies the file path for a `JSON` cookie jar. Uses `tough-cookie` to deserialize the file. |
 | `--delay-request [number]` | Specifies a delay (in milliseconds) between requests. |
 | `--disable-unicode` | Replaces all symbols in the output with their plain text equivalents. |
 | `--environment [UID] or [file-path]`, `-e` | Specifies an environment file path or UID. |
 | `--env-var "[environment-variable-name]=[environment-variable-value]"` | Specifies environment variables via the command line, in a `key=value` format. Multiple CLI environment variables can be added by using `--env-var` multiple times, for example: `--env-var "this=that" --env-var "alpha=beta"`.|
-| `--export-cookie-jar [path]` | Specifies the path where Postman CLI will output the final cookie jar file before completing a run. Uses `tough-cookie` to serialize the file. |
+| `--export-cookie-jar [path]` | Specifies the path where the Postman CLI will output the final cookie jar file before completing a run. Uses `tough-cookie` to serialize the file. |
 | `--global-var "[global-variable-name]=[global-variable-value]"` | Specifies global variables via the command line, in a `key=value` format. Multiple CLI global variables can be added by using `--global-var` multiple times, for example: `--global-var "this=that" --global-var "alpha=beta".`|
 | `--globals [file-path]`, `-g` | Specifies the file path for global variables. Global variables are similar to environment variables but have lower precedence and can be overridden by environment variables having the same name. |
 | `--iteration-count [number]`, `-n` | Specifies the number of times the collection will run when used in conjunction with the iteration data file. |
@@ -128,7 +127,7 @@ postman collection run 12345678-12345ab-1234-1ab2-1ab2-ab1234112a12
 
 ## Governance and security
 
-API governance is the practice of applying a defined set of standards consistently across your API design and testing phases of your development process. The Postman CLI includes a command that checks your API definitions against your team's configured API Governance and API Security rules. (This feature is available for [Enterprise teams only](https://www.postman.com/pricing/)).
+API governance is the practice of applying a defined set of standards consistently across your API design and testing phases of your development process. The Postman CLI includes a command that checks your API definitions against your team's configured Postman API Governance and API Security rules. (This feature is available for [Enterprise teams only](https://www.postman.com/pricing/)).
 
 ### postman api lint
 
@@ -149,3 +148,57 @@ Option | Details
 --- | ---
 `--fail-severity [severity]`, `-f` | Triggers an exit failure code for rule violations at or above the specified severity level. The options, in order of lowest to highest severity, are `HINT`, `INFO`, `WARN`, and `ERROR` (default).
 `--suppress-exit-code`, `-x`| Specifies whether to override the default exit code for the current run.
+
+## Publishing an API version
+
+You can [publish API versions](/docs/designing-and-developing-your-api/versioning-an-api/api-versions/) from the command line with the Postman CLI. This enables you to automate the API version publishing process.
+
+### postman publish api
+
+Publish a snapshot of an API for the given `apiId`. All elements linked to the API will be published by default. You can choose which elements to publish by using additional options.
+
+When publishing an API that is linked with git, you must enter the command from inside the local git repo and provide paths to the schema directory and collection paths instead of IDs.
+
+#### Example for repos not linked with git
+
+```plaintext
+postman api publish <apiId> --name v1\
+--release-notes "# Some release notes information"\
+--collections <collectionId1> <collectionId2>\
+--api-definition <apiDefinitionId>
+```
+
+#### Examples for repos linked with git
+
+The options for the `api publish` command differ depending on if you specified a schema folder or schema root file when setting up the Git integration. Git integrations added in Postman v10.18 or later use a schema root file. Git integrations added in other Postman versions use a schema folder. Learn more about [connecting an API to a Git repository](/docs/designing-and-developing-your-api/versioning-an-api/versioning-an-api-overview/).
+
+* If the API uses a schema folder, publish the API using the `--api-definition <schemaDirectoryPath>` option:
+
+    ```plaintext
+    postman api publish <apiId> --name v1\
+    --release-notes "# Some release notes information"\
+    --collections <collectionPath1> <collectionPath2>\
+    --api-definition <schemaDirectoryPath>
+    ```
+
+* If the API uses a schema root file, publish the API using the `--api-definition <schemaRootFilePath>` option:
+
+    ```plaintext
+    postman api publish <apiId> --name v1\
+    --release-notes "# Some release notes information"\
+    --collections <collectionPath1> <collectionPath2>\
+    --api-definition <schemaRootFilePath>
+    ```
+
+> If you specify a file when a folder is required, or a folder when a file is required, the `api publish` command returns the following error: `API Definition <file/folder> is not part of API <apiId>`. Try the command again using the other option.
+
+#### Options
+
+| Option | Details |
+|:--|:--|
+| `--name <name>` | Specifies the name of the version to publish. |
+| `--release-notes <releaseNotes>` | Enter release notes as a string in quotes for the version to publish. This option supports markdown. |
+| `--collections <collectionIds/paths...>` | Specifies the collections to publish. If the API is linked with git, provide the `filePath` instead of the ID. |
+| `--api-definition <apiDefinitionId/directory/file>` | Specifies the API definition to publish. If the API is linked with git, provide the `schemaDirectoryPath` or `schemaRootFilePath` instead of the ID. |
+|`--do-not-poll` | Specifies not to poll for completion status of the publish action.
+| `--suppress-exit-code, -x` | Specifies whether to override the default exit code for the current run. |

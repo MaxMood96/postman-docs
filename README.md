@@ -2,7 +2,7 @@
 
 # Postman Learning Center
 
-Postman is the collaboration platform for API development. The [Postman Learning Center](https://learning.postman.com/) has the resources you need to ramp up quickly and extend your skills with Postman. Postman enables you to write API test cases in any format of your choice (JSON/XML/many more) and run them to verify and validate your API. Moreover, Postman provides [collections](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) which can improve a developer's workflow. There are also powerful tools for API-first development, including writing API schemas and generating server code. Postman is available for several platforms including Windows, macOS, and Linux. For more information visit [the Postman website](https://www.postman.com/).
+Postman is the collaboration platform for API development. The [Postman Learning Center](https://learning.postman.com/) has the resources you need to ramp up quickly and extend your skills with Postman. Postman enables you to write API test cases in any format of your choice (JSON/XML/many more) and run them to verify and validate your API. Moreover, Postman provides [collections](https://learning.postman.com/docs/getting-started/first-steps/creating-the-first-collection/) which can improve a developer's workflow. There are also powerful tools for API-first development, including writing API schemas and generating server code. Postman is available for several platforms including Windows, macOS, and Linux. For more information visit [the Postman website](https://www.postman.com/).
 
 ## Contribution guidelines
 

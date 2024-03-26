@@ -1,11 +1,11 @@
 import React, { useState, useEffect }  from 'react';
-import { Link } from 'gatsby';
+import { Link, navigate } from 'gatsby';
 import styled from 'styled-components';
 
 const { v4: uuidv4 } = require('uuid');
 
 const sectionHandler = (e) => {
-  document.location.href = e.target.getAttribute('data-section');
+  navigate(e.target.getAttribute('data-section'));
 };
 
 const NavWrapper = styled.ul`
@@ -122,7 +122,7 @@ const ChildItemsWrapper = styled.ul`
 
 `
 
-const CaretWrapper = styled.a`
+const CaretWrapper = styled(Link)`
    .caret-wrapper {
       width: 24px;
     &:hover {
@@ -158,7 +158,7 @@ const renderTwoLevelList = (item, runtime) => {
         <li className="parent">
           <div className="container">
             <div className="row">
-              <CaretWrapper className="caret-wrapper" href={item.url}>
+              <CaretWrapper className="caret-wrapper" to={item.url} data-click={item.name}>
                 {runtime && <svg className={`caret${active ? ' active-caret' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" height="24" viewBox="0 0 24 24" width="24"><path clipRule="evenodd" d="m16.5303 8.96967c.2929.29289.2929.76777 0 1.06063l-4 4c-.2929.2929-.7677.2929-1.0606 0l-4.00003-4c-.29289-.29286-.29289-.76774 0-1.06063s.76777-.29289 1.06066 0l3.46967 3.46963 3.4697-3.46963c.2929-.29289.7677-.29289 1.0606 0z" fill="#707070" fillRule="evenodd" /></svg>}
               </CaretWrapper>
               <div className="col caret-sibling first-parent">
@@ -167,6 +167,7 @@ const renderTwoLevelList = (item, runtime) => {
                   data-click={item.name}
                   data-section={item.url}
                   onClick={sectionHandler}
+                  className="pmt-leftnav-link"
                 >
                   {item.name}
                 </button>
@@ -178,7 +179,7 @@ const renderTwoLevelList = (item, runtime) => {
               {item.subMenuItems1.map(
                 (sItem) => (sItem.url && (
                   <li key={uuidv4()} className={`child ${window.location.pathname === sItem.url ? 'currentUrl' : ''}`}>
-                    <Link data-click={sItem.name} to={sItem.url}>{sItem.name}</Link>
+                    <Link className="pmt-leftnav-link" data-click={sItem.name} to={sItem.url}>{sItem.name}</Link>
                   </li>
                 )) || (
                     <li
@@ -187,7 +188,11 @@ const renderTwoLevelList = (item, runtime) => {
                     >
                       <div className="container">
                         <div className="row">
-                          <CaretWrapper className="caret-wrapper" href={sItem.slug}>
+                          <CaretWrapper 
+                            className="caret-wrapper"
+                            to={sItem.slug}
+                            data-click={sItem.name}
+                          >
                             <svg className={`caret${(document.location.pathname.match(sItem.subParentSlug)) ? 'active-caret' : ''}`} xmlns="http://www.w3.org/2000/svg" fill="none" height="24" viewBox="0 0 24 24" width="24"><path clipRule="evenodd" d="m16.5303 8.96967c.2929.29289.2929.76777 0 1.06063l-4 4c-.2929.2929-.7677.2929-1.0606 0l-4.00003-4c-.29289-.29286-.29289-.76774 0-1.06063s.76777-.29289 1.06066 0l3.46967 3.46963 3.4697-3.46963c.2929-.29289.7677-.29289 1.0606 0z" fill="#707070" fillRule="evenodd" /></svg>
                           </CaretWrapper>
                           <div className="col caret-sibling second-parent">
@@ -196,6 +201,7 @@ const renderTwoLevelList = (item, runtime) => {
                               data-click={sItem.name}
                               data-section={sItem.slug}
                               onClick={sectionHandler}
+                              className="pmt-leftnav-link"
                             >
                               {sItem.name}
                             </button>
@@ -209,7 +215,7 @@ const renderTwoLevelList = (item, runtime) => {
                             {sItem.subMenuItems2.map(
                               (ssItem) => ssItem.url && (
                                 <li key={uuidv4()} className={`child ${document.location.pathname === ssItem.url ? 'currentUrl' : ''}`}>
-                                  <Link to={ssItem.url} data-click={sItem.name} className="ssItem second-child">{ssItem.name}</Link>
+                                  <Link to={ssItem.url} data-click={sItem.name} className="ssItem second-child pmt-leftnav-link">{ssItem.name}</Link>
                                 </li>
                               ),
                             )}

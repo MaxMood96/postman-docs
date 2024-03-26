@@ -7,28 +7,35 @@ action:
 # swap maps tokens in form of bad: good
 swap:
   '(?:autoflex|auto-flex)': Auto-Flex
-  # Postman - too many false positives
-  Postman agent: Postman Agent
-  cloud agent: Postman Cloud Agent
-  desktop agent: Postman Desktop Agent
-  API builder: API Builder
-  bootcamp: Postman Bootcamp
-  newman: Newman
-  #'(?:collection runner|Collection runner)': Collection Runner - generates too many false positives
-  # x: Postman Echo - not used
-  # x: Postman Team plan - not used
-  # x: Postman Business plan - not used
-  # x: Postman Enterprise plan - not used
-  Postman interceptor: Postman Interceptor
-  '(?:Postman bridge|interceptor bridge)': Interceptor Bridge
-  Postman console: Postman Console
   '(?:learning center|Learning center)': Postman Learning Center
-  Postman dashboard: Postman Dashboard
+  '(?:Postman bridge|interceptor bridge)': Interceptor Bridge|Bridge
   '(?:Postman visualizer|visualizer)': Postman Visualizer
-  Postman API network: Postman API Network
-  # x: Postman Templates - not used anymore
-  Postman collection: Postman Collection
-  launchpad: Launchpad
   '(?:trust center|Trust center)': Trust Center
-  Workbench: workbench
-  Postman enterprise: Postman Enterprise
+  '(?<!Postman )[bB]rowser [aA]gent': Postman Browser Agent|Browser Agent
+  '(?<!Postman )[cC]loud [aA]gent': Postman Cloud Agent|Cloud Agent
+  '(?<!Postman )[sS]ecret [sS]canner': Postman Secret Scanner|Secret Scanner
+  '(?<!Postman )console': Postman Console
+  '(?<!Postman )flows': Postman Flows|Flows
+  '(?<!Postman )Web App|Desktop App': Postman web app|Postman desktop app|Postman
+  '(?<=Postman )agent': Postman Agent
+  '(?<=Postman )API network': Postman API Network
+  '(?<=Postman )API platform': Postman API Platform
+  '(?<=Postman )API security': Postman API Security
+  '(?<=Postman )collection': Postman Collection
+  '(?<=Postman )enterprise': Postman Enterprise
+  '(?<=Postman )monitor': Postman Monitor
+  'Postman dashboard': Postman Dashboard
+  'Postman interceptor': Postman Interceptor
+  # Postman - too many false positives
+  # x: Postman Business plan - not used
+  # x: Postman Echo - not used
+  # x: Postman Enterprise plan - not used
+  # x: Postman Team plan - not used
+  # x: Postman Templates - not used anymore
+  #'(?:collection runner|Collection runner)': Collection Runner - generates too many false positives
+  API builder: API Builder
+  API first: API-first
+  bootcamp: Postman Bootcamp
+  launchpad: Launchpad
+  newman: Newman
+  partner workspaces: Partner Workspaces

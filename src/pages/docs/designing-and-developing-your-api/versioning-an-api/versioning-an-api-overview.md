@@ -1,21 +1,16 @@
 ---
-title: 'API version control overview'
-updated: 2022-09-15
+title: "Manage your API changes using version control"
+updated: 2023-06-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "API development overview"
-    url: "/docs/designing-and-developing-your-api/the-api-workflow/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "How to Version APIs | Postman"
     url: "https://youtu.be/LzJEKsccQ70"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Redefining API Management for the API-First World"
     url: "https://blog.postman.com/new-postman-api-platform-redefining-api-management-for-api-first-world"
@@ -28,17 +23,9 @@ contextual_links:
   - type: link
     name: "Syncing Your Specs with Collections"
     url: "https://blog.postman.com/latest-updates-to-syncing-your-specs-with-collections/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Reports overview"
-    url: "/docs/reports/reports-overview/"
-  - type: link
-    name: "Validating elements against schema"
-    url: "/docs/designing-and-developing-your-api/developing-an-api/validating-elements-against-schema/"
 ---
 
-> **[GitHub Enterprise Server, GitLab Self-Managed, and Azure DevOps Server (hosted on-premises) integrations are available on Postman Enterprise plans.](https://www.postman.com/pricing)**
+> **[GitHub Enterprise Server, GitLab Self-Managed, and Azure DevOps Server (hosted on-premises) integrations are available on Postman Enterprise Ultimate plans.](https://www.postman.com/pricing)**
 
 Postman enables you to use Git-based version control for developing and managing changes to your API. You can connect your API to a remote GitHub, Bitbucket, GitLab, or Azure DevOps repository. The remote repository can be hosted in the cloud or on-premises.
 
@@ -49,7 +36,7 @@ Once your API is connected to a repository, you can switch branches, pull change
 ## Contents
 
 * [API version control workflow](#api-version-control-workflow)
-* [Using a remote Git repository](#using-a-remote-git-repository)
+* [Connecting to a remote Git repository](#connecting-to-a-remote-git-repository)
 * [Managing changes using Git](#managing-changes-using-git)
 * [Publishing an API version](#publishing-an-api-version)
 
@@ -58,7 +45,7 @@ Once your API is connected to a repository, you can switch branches, pull change
 Here's a typical workflow for API-first development with a connected repository:
 
 1. Create an API in Postman.
-1. Connect the API to a remote repository.
+1. Connect the API to a remote Git repository.
 1. In Postman, select an active branch. Make changes to the API definition and associated collections, then commit and push the changes to the remote repository.
 
     > You can also make changes in the Git repository using other tools or editors. For example, developers can follow a Git workflow by working on feature branches, then creating pull requests to merge them into the default branch.
@@ -66,11 +53,15 @@ Here's a typical workflow for API-first development with a connected repository:
 1. Periodically pull from the remote repository to bring changes others have made into Postman, and resolve conflicts if there are any issues.
 1. In Postman, publish a new version to make the changes available to your API's consumers.
 
-## Using a remote Git repository
+## Connecting to a remote Git repository
 
 You can connect your API to a GitHub, Bitbucket, GitLab, or Azure DevOps repository. Once connected, you can sync your API definition and associated collections in Postman with the remote repository.
 
-Learn more about [using a remote Git repository](/docs/designing-and-developing-your-api/versioning-an-api/using-external-git-repo/).
+* To connect your API to the cloud-hosted versions of GitHub, Bitbucket, GitLab SaaS, or Azure DevOps, go to [Using a cloud-hosted Git repository](/docs/designing-and-developing-your-api/versioning-an-api/using-cloud-git-repo/).
+
+* To connect your API to the on-premises versions of GitHub Enterprise Server, GitLab Self-Managed, or Azure DevOps Server, go to [Using an on-premises Git repository](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/). (You must be on a [Postman Enterprise Ultimate plan](https://www.postman.com/pricing) to connect to an on-premises or self-hosted repository.)
+
+* You can connect an API to more than one Git repository. Learn more about [Connecting an API to multiple repositories](/docs/designing-and-developing-your-api/versioning-an-api/connecting-multiple-apis/).
 
 ## Managing changes using Git
 

@@ -1,5 +1,8 @@
 import React from 'react';
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, } from "react";
+import { useInstantSearch } from 'react-instantsearch';
+import { Paragraph } from 'aether-marketing';
+const { v4: uuidv4 } = require('uuid');
 
 /* Algolia Imports */
 import algoliasearch from 'algoliasearch/lite';
@@ -9,35 +12,62 @@ import {
   Hits,
   Configure,
   Pagination,
-} from 'react-instantsearch-dom';
+} from 'react-instantsearch';
 import { SearchWrapperStyling } from '../Search/searchStyles.jsx';
-import { CustomHits } from '../Search/searchPreview.jsx';
+import { CustomHits, CustomPagination } from '../Search/searchPreview.jsx';
 
-  const searchOnlyKey = process.env.NODE_ENV === 'development' ? '003daeb8de202d4a917c2395628d75a8' : '69f2c5376f1a90912c6c3b6b772c25bc';
-  const algoliaIndex = process.env.NODE_ENV === 'development' ? 'dev_docs' : 'docs';
+const searchOnlyKey = process.env.NODE_ENV === 'development' ? '003daeb8de202d4a917c2395628d75a8' : '69f2c5376f1a90912c6c3b6b772c25bc';
+const algoliaIndex = process.env.NODE_ENV === 'development' ? 'dev_docs' : 'docs';
 
+/* Algolia Search Bar */
+const algoliaClient = algoliasearch(
+  '4A5N71XYH0',
+  searchOnlyKey
+);
 
-  /* Algolia Search Bar */
-  const algoliaClient = algoliasearch(
-    '4A5N71XYH0',
-    searchOnlyKey
+// removes empty query searches from analytics
+const searchClient = {
+  search(requests) {
+    const newRequests = requests.map((request) => {
+      // test for empty string and change request parameter: analytics
+      if (!request.params.query || request.params.query.length === 0) {
+        request.params.analytics = false;
+      }
+      return request;
+    });
+    return algoliaClient.search(newRequests);
+  },
+};
+
+// Provide a fallback when no results are returned.
+function NoResultsBoundary({ children, fallback }) {
+  const { results } = useInstantSearch();
+
+  // The `__isArtificial` flag makes sure not to display the No Results message
+  // when no hits have been returned.
+  if (!results.__isArtificial && results.nbHits === 0) {
+    return (
+      <>
+        {fallback}
+        <div hidden>{children}</div>
+      </>
+    );
+  }
+
+  return children;
+}
+
+function NoResults() {
+  return (
+    <ul className="algolia-result-style">
+      <li key={uuidv4()} className='mb-3 px-lg-5'>
+        <Paragraph className="mt-2">
+          No search results found.
+        </Paragraph>
+      </li>
+    </ul>
   );
-
-  
-
-  // removes empty query searches from analytics
-  const searchClient = {
-    search(requests) {
-      const newRequests = requests.map((request) => {
-        // test for empty string and change request parameter: analytics
-        if (!request.params.query || request.params.query.length === 0) {
-          request.params.analytics = false;
-        }
-        return request;
-      });
-      return algoliaClient.search(newRequests);
-    },
-  };
+}
 
 const Dropdown = () => {
   const ref = useRef();
@@ -68,44 +98,43 @@ const Dropdown = () => {
           indexName={algoliaIndex}
           refresh={refresh}
         >
-          <Configure hitsPerPage={5} />
-
-          {/* forcefeed className because component does not accept natively as prop */}
+          <Configure hitsPerPage={5} distinct/>
           <SearchBox
             id="search-lc"
-            className="searchbox"
-            class="ais-SearchBox-input"
-            submit={<></>}
-            reset={<></>}
-            translations={{
-              placeholder: 'Search Postman Docs',
+            classNames={{
+              root: "searchbox",
+              form: "ais-SearchBox-input"
             }}
+            placeholder='Search Postman Docs'
+            submitIconComponent={() => (
+              <></>
+             )}
+            resetIconComponent={() => (
+              <></>
+            )}
             onKeyUp={(event) => {
-              setHasInput(event.currentTarget.value.length > 2)
+              setHasInput(event.target.value.length > 2)
             }}
           />
           <div className={!hasInput ? 'input-empty' : 'input-value'}>
-            <div className="container">
-              <div className="row">
-                <div className="col-12">
+            <div className="row">
+              <div className="col-12">
+                <NoResultsBoundary fallback={<NoResults />}>
                   <CustomHits hitComponent={Hits} />
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-12">
                   <Pagination
+                    totalPages={3}
                     translations={{
-                      previous: '← Previous',
-                      next: 'Next →',
-                      first: '«',
-                      last: '»',
-                      ariaPrevious: 'Previous page',
-                      ariaNext: 'Next page',
-                      ariaFirst: 'First page',
-                      ariaLast: 'Last page',
+                      previousPageItemText: '← Previous',
+                      nextPageItemText: 'Next →',
+                      firstPageItemText: '',
+                      lastPageItemText: '',
+                      previousPageItemAriaLabel: 'Previous page',
+                      nextPageItemAriaLabel: 'Next page',
+                      firstPageItemAriaLabel: 'First page',
+                      lastPageItemAriaLabel: 'Last page',
                     }}
                   />
-                </div>
+                </NoResultsBoundary>
               </div>
             </div>
           </div>

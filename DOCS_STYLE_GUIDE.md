@@ -15,7 +15,7 @@ Check out the [contributing](CONTRIBUTING.md) guide for a step-by-step overview 
 * [Links](#links)
 * [Publish!](#publish)
 
-_This style guide is a work in progress, and we'll be continuing to iterate on it. Create an [issue](https://github.com/postmanlabs/postman-docs/issues) if you'd like to provide feedback!_
+_This style guide is a work in progress, and we'll be continuing to iterate on it. Please contact [Postman's docs team](mailto:docs-feedback@postman.com) if you'd like to provide feedback!_
 
 ## Audience
 

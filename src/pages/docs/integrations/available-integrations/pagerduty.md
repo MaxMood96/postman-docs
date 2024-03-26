@@ -1,17 +1,9 @@
 ---
-title: "PagerDuty"
+title: "Integrate Postman with PagerDuty"
 updated: 2022-10-05
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: link
-    name: "Intro to Monitoring"
-    url: "/docs/monitoring-your-api/intro-monitors/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
@@ -52,8 +44,10 @@ This integration triggers incidents in PagerDuty based on your [Postman monitor 
 
 1. Enter the name of the integration, workspace, monitor, and your PagerDuty integration key, then select **Add Integration**.
 
+    > **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a monitor by opening the monitor and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
+
     <img alt="Create a new PagerDuty integration" src="https://assets.postman.com/postman-docs/v10/integrations-create-new-pagerduty-v10.jpg" width="500px"/>
 
 ## Viewing PagerDuty results
 
-The PagerDuty console updates continuously to display any incidents that result from your Postman monitors. If the selected monitor fails, PagerDuty notifies you according to the formatting and business rules you set.
+The PagerDuty console updates continuously to display any incidents that result from your Postman Monitors. If the selected monitor fails, PagerDuty notifies you according to the formatting and business rules you set.

@@ -39,7 +39,6 @@ html {
 body, p {
   font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica, Arial, sans-serif;
   color: #212121;
-  font-feature-settings: "ss01", "onum", "zero";
   font-size: 16px;
   font-weight: 400;
   text-rendering: geometricPrecision;
@@ -75,12 +74,18 @@ button, input, optgroup, select, textarea {
     z-index: 10;
     background: rgba(0,0,0,0.7);
   }
-  
-}
-code {
- font-family: 'IBM Plex Mono', SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace !important;
 }
 
+code {
+  font-family: 'IBM Plex Mono', SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  background-color: #F2F2F2;
+  color: #212121;
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
 
 h1,
 .h1,
@@ -90,7 +95,6 @@ h3,
 .h3 {
   font-family: 'Degular-Display-Semibold', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica, Arial, sans-serif;
   font-weight: 600;
-  font-feature-settings: 'kern' 1, 'ss01' 1, 'salt' 1;
 }
 
 h4,
@@ -271,7 +275,6 @@ strong,
 .section {
   padding: 40px 0;
   margin-bottom: 0;
-  font-size: 14px;
   @media (min-width: 768px) {
     padding: 80px 0;
   }
@@ -349,6 +352,14 @@ button.close {
 }
 button.close:not(:disabled):not(.disabled):hover {
   opacity: 1;
+}
+
+small,
+.small {
+  color: #6b6b6b;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5714285714; /* 22px */
 }
 `
 export default GlobalStyle;

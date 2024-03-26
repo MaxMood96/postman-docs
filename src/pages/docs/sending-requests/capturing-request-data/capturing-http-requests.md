@@ -1,23 +1,16 @@
 ---
-title: "Capturing HTTP requests"
-order: 32
-page_id: "capturing_http_requests"
-updated: 2022-03-02
+title: "Capture HTTP requests in Postman"
+updated: 2023-08-24
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Sending requests"
-    url: "/docs/sending-requests/requests/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Capture API Calls With a Proxy"
     url: "https://youtu.be/bjrCHUITZ3k"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Test Your Web Apps Using the Postman Proxy"
     url: "https://blog.postman.com/testing-web-app-using-postman-proxy/"
@@ -27,14 +20,13 @@ contextual_links:
   - type: link
     name: "Reverse engineering an API"
     url: "https://medium.com/better-practices/reverse-engineering-an-api-403fae885303"
-
-warning: false
-
 ---
+
+> **Follow these steps if you're on Linux (all Postman versions), macOS (Postman v10.16 or earlier), or Windows (Postman v10.17 or earlier).** If you're on macOS (Postman v10.17 or later) or Windows (Postman v10.18 or later), go to [Capturing requests with the Postman proxy](/docs/sending-requests/capturing-request-data/capture-with-proxy/) instead. To check which version of Postman you're using, select the settings icon <img alt="Settings icon" src="https://assets.postman.com/postman-docs/icon-settings-v9.jpg#icon" width="16px"> in the header and select **Settings > About**.
 
 If you are using APIs to build client-side applications like mobile apps, websites, or desktop applications, you may want to inspect the actual HTTP and HTTPS request traffic that's being sent and received in the application. Sometimes you might discover APIs that aren't even documented. You can capture network traffic, including requests, responses, and cookies, using the proxy that's built into Postman.
 
-> You can also use the Postman proxy to automatically sync cookies from a Chrome browser to the Postman cookie jar. Learn more about [syncing cookies](/docs/sending-requests/capturing-request-data/syncing-cookies/).
+> You can also use the Postman proxy to automatically sync cookies from a browser to the Postman cookie jar. Learn more about [syncing cookies](/docs/sending-requests/capturing-request-data/syncing-cookies/).
 
 ## Contents
 
@@ -58,7 +50,7 @@ The Postman app has a built-in proxy that can capture HTTP and HTTPS traffic. He
 
 [![postman capture proxy](https://assets.postman.com/postman-docs/proxymobile-aa.jpeg)](https://assets.postman.com/postman-docs/proxymobile-aa.jpeg)
 
-Similar to the [Interceptor Chrome extension](/docs/sending-requests/capturing-request-data/interceptor/), the Postman app proxy intercepts and captures your requests. Additionally, it can capture responses and cookies.
+Similar to the [Interceptor extension](/docs/sending-requests/capturing-request-data/interceptor/), the Postman app proxy intercepts and captures your requests. Additionally, it can capture responses and cookies.
 
 After you start the Postman proxy, you can start a proxy debug session, which is a time-bound session of traffic capture. You can start, pause, and stop a proxy debug session, then later start another one. Each debug session is logged in the **History** tab, and displays the total session time, a traffic overview, and all traffic captured. You can also send requests and responses to a collection, and save cookies to the Postman cookie jar.
 
@@ -68,7 +60,7 @@ In the steps below, you will use the Postman app's proxy to inspect HTTP communi
 
 ### Step 1: Enable the proxy
 
-> You can't use the Postman proxy with the [Postman web app](/docs/getting-started/installation-and-updates/#web-limitations). Make sure you've installed the [Postman desktop app](/docs/getting-started/installation-and-updates/).
+> You can't use the Postman proxy with the [Postman web app](/docs/getting-started/installation/installation-and-updates/#web-limitations). Make sure you've installed the [Postman desktop app](/docs/getting-started/installation/installation-and-updates/).
 
 1. Select <img alt="Capture icon" src="https://assets.postman.com/postman-docs/icon-capture.jpg#icon" width="15px"> **Capture requests** in the Postman footer.
 1. In the **Capture requests** window, select the **Via Proxy** tab.
@@ -98,7 +90,7 @@ To start a proxy debug session, do the following:
 
     > You can also capture cookies and sync them to Postman without starting a debug session. Learn more about [syncing cookies](/docs/sending-requests/capturing-request-data/syncing-cookies/).
 
-1. Requests will be saved in a debug session in the **History** tab in the sidebar. Select **Save requests to a collection** and select a collection from the list to also save the requests there.
+1. Requests will be saved in a debug session in the **History** tab in the sidebar. Select **Save requests to a collection** and select a collection from the list to also save the requests there. To create a new collection in which to save requests, enter a name for the new collection and select the Create action.
 1. If you save requests and responses to a collection, they're added chronologically by default. You can alternately group them in folders organized by domain name or endpoints. Under **Organize requests by**, select **Domain name**, **Endpoints**, or both. Your requests and responses are then organized in folders in the selected collection.
 1. Under **Configure Incoming Requests**, there are more options you can use to limit the requests and responses captured:
 
@@ -135,7 +127,7 @@ The proxy debug session is started, but it won't capture anything until a device
 
 The broader development community has published some useful tutorials for setting up a proxy server on various operating systems:
 
-* [Windows](https://www.howtogeek.com/tips/how-to-set-your-proxy-settings-in-windows-8.1/)
+* [Windows](https://support.microsoft.com/en-us/windows/use-a-proxy-server-in-windows-03096c53-0554-4ffe-b6ab-8b1deee8dae1)
 * [Linux](https://www.shellhacks.com/linux-proxy-server-settings-set-proxy-command-line/)
 * [macOS](https://support.apple.com/en-gb/guide/mac-help/mchlp2591/mac)
 * [Android](https://www.howtogeek.com/295048/how-to-configure-a-proxy-server-on-android/)
@@ -161,7 +153,7 @@ When you select one or more requests from the list on the **Requests** tab, you 
 
 When you select one or more cookies from the list on the **Cookies** tab, you can use the following controls:
 
-* **+ Add to Cookie Jar** - add the request to the Postman cookie jar.
+* **+ Add to Cookie Jar** - add the request to the [Postman cookie jar](/docs/sending-requests/response-data/cookies/).
 
 * <img alt="Delete icon" src="https://assets.postman.com/postman-docs/icon-delete-v9.jpg#icon" width="12px"> **Delete** - delete the cookie.
 

@@ -1,12 +1,7 @@
 ---
-title: "gRPC test examples"
+title: "Write tests for gRPC requests using JavaScript assertions in Postman"
 updated: 2022-09-15
 contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Scripting in gRPC requests"
-    url: "/docs/sending-requests/grpc/scripting-in-grpc-request/"
   - type: section
     name: "Additional resources"
   - type: subtitle
@@ -18,12 +13,12 @@ contextual_links:
     name: "Working with gRPC | The Exploratory"
     url: "https://youtu.be/RbHOs2xchGE"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Testing gRPC APIs with Postman"
     url: "https://blog.postman.com/testing-grpc-apis-with-postman/"
   - type: subtitle
-    name: "Public Workspaces"
+    name: "Public workspaces"
   - type: link
     name: "Public gRPC APIs"
     url:  "https://www.postman.com/devrel/workspace/public-grpc-apis"
@@ -134,11 +129,11 @@ pm.test('"grpc-status-details-bin" response trailer is "dummy-value"', () => {
 
 ## Testing responses
 
-In case of multiple response messages (request with the server or bidirectional streaming method), the below tests will check all the messages for the given assertion. For a request with unary or client streaming method where there is only one response message, the assertion will be tested on that single message only.
+In the case of multiple response messages (a request with the server or bidirectional streaming method), the tests in this section check all the messages for the given assertion. For a request with the unary or client streaming method where there is only one response message, the assertion is tested on that single message only.
 
-Also, when writing assertions using `pm.response.messages.to.*` , you will be asserting on an array of message content and not the complete message object mentioned [here](/docs/sending-requests/grpc/postman-sandbox-api/#pmresponse).
+Also, when writing assertions using `pm.response.messages.to.*`, you will be asserting on an array of message content and not the complete [pm.response](/docs/sending-requests/grpc/postman-sandbox-api/#pmresponse) message object.
 
-The below assertions can be tested on request messages as well using `pm.request` object.
+You can test the assertions in this section on request messages as well using the `pm.request` object.
 
 ### Testing existence of a message
 

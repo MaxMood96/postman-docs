@@ -44,3 +44,6 @@ swap:
   entity: element
   trash icon: trash
   trash can: trash
+  check box: checkbox
+  re-send: resend
+  slot?s?: seat

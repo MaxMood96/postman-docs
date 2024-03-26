@@ -1,24 +1,16 @@
 ---
-title: "Creating pull requests"
+title: "Contribute to forked collections and environments in Postman"
 updated: 2022-11-17
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Version control overview"
-    url: "/docs/collaborating-in-postman/using-version-control/version-control-overview/"
-  - type: link
-    name: "Forking Postman entities"
-    url: "/docs/collaborating-in-postman/using-version-control/forking-entities/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Version Control for Collections | Postman Level Up"
     url: "https://www.youtube.com/watch?v=QKxukXJWRPI&list=PLM-7VG-sgbtC5tNXxd28cmePSa9BYwqeU&index=7"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing Environment Forking and Pull Requests"
     url: "https://blog.postman.com/introducing-environment-forking-and-pull-requests/"
@@ -30,11 +22,6 @@ contextual_links:
   - type: link
     name: "Youi"
     url: "https://www.postman.com/case-studies/youi/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Reviewing pull requests"
-    url: "/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/"
 ---
 
 When you have made the changes that you want to a forked collection or environment, you can create a _pull request_. Creating a pull request means that you want to merge the changes you made in the forked element (the _source_) into the parent element (the _destination_). As part of the pull request process, you will request that reviewers look at your changes. Reviewers can make comments on your changes and will decide whether to approve them and merge them into the parent element.
@@ -47,7 +34,7 @@ When you have made the changes that you want to a forked collection or environme
 
 ## Creating pull requests
 
-> The pull request process isn't available for flows.
+> The pull request process isn't available for Flows.
 
 1. Hover over the element in the sidebar.
 1. Select the more actions icon <img alt="More actions icon" src="https://assets.postman.com/postman-docs/icon-more-actions-v9.jpg#icon" width="16px"> next to its name.
@@ -65,20 +52,20 @@ When you have made the changes that you want to a forked collection or environme
     * If there are any conflicts between the fork and the parent element, Postman highlights them so that you can [resolve them](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/#resolving-conflicts-from-a-pull-request).
 
 1. Select **Overview**.
-1. Enter a title and description for your pull request, and select up to 50 reviewers from the dropdown list. Reviewers must have [Editor access](/docs/collaborating-in-postman/roles-and-permissions/#element-based-roles) on the element to merge your changes.
+1. Enter a title and description for your pull request, and select up to 50 reviewers and [user groups](/docs/collaborating-in-postman/user-groups/) from the dropdown list. Reviewers and user groups must have [Editor access](/docs/collaborating-in-postman/roles-and-permissions/#element-based-roles) for the element to merge your changes.
 1. Select **Create Pull Request**.
 
     <img alt="Create Pull Request" src="https://assets.postman.com/postman-docs/v10/pull-request-overview-v10.jpg" width="350px"/>
 
 [Postman notifies the reviewers](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/#reviewing-pull-requests) you selected about your pull request. You will receive a notification if the reviewers [comment on](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/#adding-comments), [approve](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/#approving-a-pull-request), or [merge](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/#merging-changes-from-a-pull-request) the pull request.
 
-> A reviewer must have an Editor role for the element to merge changes. If you add a user who doesn't have Editor access as a reviewer, there will be a warning icon next to their name.
+> A reviewer or group must have the Editor role for the element to merge changes. If you add a user or group that doesn't have Editor access as a reviewer, there will be a warning icon next to the name. Reviewers and groups with the Viewer role can approve PRs, but can't merge PRs.
 >
 > <img alt="Reviewer permission" src="https://assets.postman.com/postman-docs/pull-request-reviewer-permission.jpg" width="350px"/>
 
 ## Creating public pull requests
 
-To create a pull request on a public collection or environment, you must fork the parent element into a public workspace so that the users you ask to [review it](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/) have access to it.
+To create a pull request on a public collection or environment, you must fork the parent element into a public workspace so that the users or groups you ask to [review it](/docs/collaborating-in-postman/using-version-control/reviewing-pull-requests/) have access to it.
 
 To create a public pull request, do the following:
 
@@ -106,12 +93,13 @@ Pull request settings let you manage permissions for reviewers and assign merge 
 1. Select the more actions icon <img alt="More actions icon" src="https://assets.postman.com/postman-docs/icon-more-actions-v9.jpg#icon" width="16px"> next to its name.
 1. Select **Manage roles**.
 
-    <img alt="Collection Manage Roles" src="https://assets.postman.com/postman-docs/collection-manage-roles-v9.1.jpg" width="300px"/>
+    <img alt="Collection Manage Roles" src="https://assets.postman.com/postman-docs/v10/collection-manage-roles-v10.jpg" width="300px"/>
 
-1. Select **Editor** for the users you want to give Editor access to.
+1. Select **Editor** for the users and groups you want to give Editor access to.
+
+    <img alt="Manage Roles" src="https://assets.postman.com/postman-docs/v10/manage-roles-collection-v10.jpg" width="600px"/>
+
 1. Select **Update Roles**.
-
-    [![manage roles](https://assets.postman.com/postman-docs/manage-roles-collection-v9.12.jpg)](https://assets.postman.com/postman-docs/manage-roles-collection-v9.12.jpg)
 
 ### Assign merge checks
 
@@ -129,7 +117,7 @@ To set merge checks for pull requests on a specific collection, do the following
 1. Select **Manage roles**.
 1. Select the merge checks that you want to set for the collection.
 
-<img alt="Merge Check" src="https://assets.postman.com/postman-docs/manage-roles-set-merge-checks.jpg" width="800px"/>
+<img alt="Merge Check" src="https://assets.postman.com/postman-docs/v10/manage-roles-set-merge-checks-v10.jpg"  width="600px"/>
 
 If the merge conditions for a pull request aren't met, the option to **Merge** it into the parent collection will be inactive.
 

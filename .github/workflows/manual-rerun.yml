@@ -28,6 +28,7 @@ jobs:
     - name: running unit tests
       env:
         PM_TECH_RT: ${{secrets.PM_TECH_RT}}
+        MKAPI_URL: ${{secrets.MKAPI_URL}}
       run: |
         npm config set //registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}
         npm install

@@ -1,17 +1,12 @@
 ---
-title: "Coralogix"
+title: "Integrate Postman with Coralogix"
 order: 165
 updated: 2022-07-13
 page_id: "coralogix"
 warning: false
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
@@ -22,7 +17,7 @@ contextual_links:
 
 Coralogix is a machine learning powered log analytics platform which drastically improves the delivery and maintenance process for software providers. This integration allows you to configure your Postman Monitors to send metrics to Coralogix where you can visualize and compare metrics.
 
-Setting up a Coralogix integration requires you to get an API key from Coralogix and configure your Postman Monitors. After you set up the integration, you can view real-time alerts based on the results of your monitors.
+Setting up a Coralogix integration requires you to get an API key from Coralogix and configure your Postman monitors. After you set up the integration, you can view real-time alerts based on the results of your monitors.
 
 ## Retrieving your Coralogix private key
 
@@ -60,13 +55,15 @@ Setting up a Coralogix integration requires you to get an API key from Coralogix
 
 1. Select **Add Integration** to save the configuration.
 
+> **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a monitor by opening the monitor and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
+
 ## Analyzing metrics in Coralogix
 
 Once the data starts flowing into Coralogix, you can view and analyze these metrics in the Coralogix dashboard.
 
 ![Coralogix dashboard](https://assets.postman.com/postman-docs/coralogix_dashboard1.png)
 
-Select the **Logs** tab to a view a list of all logs. You can filter the services by name. As many services may be running in your system, you can filter by selecting Postman to view all Coralogix logs for Postman. The schema appears, as illustrated below:
+Select the **Logs** tab to a view a list of all logs. You can filter the services by name. Since many services may be running in your system, you can filter by selecting **Postman** to view all Coralogix logs for Postman. This will enable you to inspect the schema.
 
 ![Coralogix logs view](https://assets.postman.com/postman-docs/coralogix_schema1.png)
 

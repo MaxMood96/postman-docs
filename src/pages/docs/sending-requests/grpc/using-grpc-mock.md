@@ -1,14 +1,9 @@
 ---
-title: "Using gRPC mock servers"
+title: "Create and use gRPC mock servers"
 updated: 2022-09-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Invoke your first gRPC request"
-    url: "/docs/sending-requests/grpc/first-grpc-request/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
@@ -18,7 +13,7 @@ contextual_links:
     name: "Working with gRPC | The Exploratory"
     url: "https://youtu.be/RbHOs2xchGE"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Postman Now Has Mocking Magic for gRPC"
     url: "https://blog.postman.com/postman-mocking-magic-for-grpcs/"
@@ -34,7 +29,7 @@ In an API-first design lifecycle, you may be designing a new feature that depend
 
 ## Using a gRPC mock server
 
-Before creating a gRPC mock server, you must have an API definition. This can either be an API in your workspace, a `.proto` file you want to import, or you can create a new API using the Postman API Builder.
+Before creating a gRPC mock server, you must have an API definition. This can either be an API in your workspace, a protobuf (protocol buffer) file you want to import, or you can create a new API using the Postman API Builder.
 
 To create the gRPC mock server, do the following:
 
@@ -60,7 +55,7 @@ To pass seed data, do the following:
 1. Make a gRPC request to a mock server.
 1. In the **Metadata** pane of the response, find the value of the key-value pair named `seed`.
     <img src="https://assets.postman.com/postman-docs/v10/grpc-response-seed.jpg" alt="gRPC response seed">
-1. In the **Metadata** pane of the request, set a key-value pair for `seed` with the value of the seed above.
+1. In the **Metadata** pane of the request, set a key-value pair for `seed` with the value of the seed.
     <img src="https://assets.postman.com/postman-docs/v10/grpc-request-seed.jpg" alt="gRPC request seed">
 1. Invoke the request again.
 

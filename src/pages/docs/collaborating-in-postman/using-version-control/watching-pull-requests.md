@@ -1,21 +1,16 @@
 ---
-title: "Watching pull requests"
+title: "Watch pull requests in Postman"
 updated: 2022-11-17
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Version control overview"
-    url: "/docs/collaborating-in-postman/using-version-control/version-control-overview/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Version Control for Collections | Postman Level Up"
     url: "https://www.youtube.com/watch?v=QKxukXJWRPI&list=PLM-7VG-sgbtC5tNXxd28cmePSa9BYwqeU&index=7"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing Environment Forking and Pull Requests"
     url: "https://blog.postman.com/introducing-environment-forking-and-pull-requests/"

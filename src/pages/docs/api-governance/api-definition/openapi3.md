@@ -1,39 +1,33 @@
 ---
-title: "OpenAPI 3.0 rules"
+title: "OpenAPI 3 security and formatting warnings"
 updated: 2022-07-20
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Rule violations in the API definition"
-    url: "https://learning.postman.com/docs/api-governance/api-definition/api-definition-warnings/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Security and Governance Rules for API Definitions | Postman Level Up"
     url: "https://youtu.be/jphqpbTEDCY"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing Security Warnings During API Validation"
     url: "https://blog.postman.com/security-warnings-during-api-validation/"
   - type: subtitle
-    name: "Public Workspaces"
+    name: "Public workspaces"
   - type: link
     name: "Postman Security"
     url:  "https://www.postman.com/postman/workspace/62d58d93-7e0c-45bf-9daa-cc8e531fc344"
-search_keyword: "api security, api schema, security warnings, schema validation, security validation, api security audit, api security scan, api schema vulnerabilities, security audit,openapi 3.0"
 ---
 
 You can use Postman to identify any potential security and formatting issues when defining your API.
 
 <img alt="OpenAPI 3.0 rule violations" src="https://assets.postman.com/postman-docs/v10/api-definition-rule-violations-openapi3-v10.1.jpg" />
 
-### Warnings for OpenAPI 3.0
+### Warnings for OpenAPI 3
 
-For all APIs defined in OpenAPI 3.0, the following list describes possible warning messages and potential ways to resolve them.
+For all APIs defined in OpenAPI 3.0 and 3.1, the following list describes possible warning messages and potential ways to resolve them.
 
 <!-- vale off -->
 
@@ -1158,7 +1152,7 @@ paths:
 
 | Issue description | Possible fix |
 | ----------- | ----------- |
-| One or more [parameter objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#parameter-object) in an [operations object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#operation-object) in your API definition don't have an `example` or `examples` field. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data to provide. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/) or a [collection](/docs/getting-started/creating-the-first-collection/). | Add an `example` or `examples` field to provide your API's consumers with an example of the parameter's potential value. |
+| One or more [parameter objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#parameter-object) in an [operations object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#operation-object) in your API definition don't have an `example` or `examples` field. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data to provide. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) or a [collection](/docs/getting-started/first-steps/creating-the-first-collection/). | Add an `example` or `examples` field to provide your API's consumers with an example of the parameter's potential value. |
 
 #### Resolution
 
@@ -1271,7 +1265,7 @@ paths:
 
 | Issue description | Possible fix |
 | ----------- | ----------- |
-| One or more [request body objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#requestBodyObject) in your API definition don't have an example. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/) or a [collection](/docs/getting-started/creating-the-first-collection/). | Add an `example` or `examples` field to all request body objects. |
+| One or more [request body objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#requestBodyObject) in your API definition don't have an example. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) or a [collection](/docs/getting-started/first-steps/creating-the-first-collection/). | Add an `example` or `examples` field to all request body objects. |
 
 #### Resolution
 
@@ -1357,7 +1351,7 @@ paths:
 
 | Issue description | Possible fix |
 | ----------- | ----------- |
-| One or more [response objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#responseObject) in your API definition don't have an example. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/) or a [collection](/docs/getting-started/creating-the-first-collection/). | Add an `example` or `examples` field to all response objects. |
+| One or more [response objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3.md#responseObject) in your API definition don't have an example. It's important to provide undocumented examples (using the `example` property) or documented examples (using the `examples` property) to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) or a [collection](/docs/getting-started/first-steps/creating-the-first-collection/). | Add an `example` or `examples` field to all response objects. |
 
 #### Resolution
 

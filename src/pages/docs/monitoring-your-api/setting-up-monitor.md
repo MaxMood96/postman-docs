@@ -1,21 +1,16 @@
 ---
-title: "Setting up a collection-based monitor"
+title: "Set up a collection-based monitor in Postman"
 updated: 2022-11-09
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "API Monitoring | The Exploratory"
     url: "https://youtu.be/tDQzY1Hn2LY"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Integrated API Monitoring in Postman"
     url: "https://blog.postman.com/integrated-api-monitoring-in-postman/"
@@ -33,6 +28,8 @@ contextual_links:
 Create a new collection-based monitor to continuously check your API's health, run test suites, or validate critical workflows. When creating a monitor, you select a collection with the requests you want to run and set a schedule for how often Postman runs the collection.
 
 Other configuration options enable you to tailor the monitor to your specific API development workflow. You can also upload a data file with sets of values to use as variable inputs when running the monitor.
+
+> You can also schedule collection runs using the Collection Runner. Monitors are typically used to schedule runs when you want to set up alerts like triggering on-call upon failure. Choose the Collection Runner to schedule runs for automating API tests and other use cases. Learn more about [Scheduling collection runs](/docs/collections/running-collections/scheduling-collection-runs/).
 
 ## Contents
 
@@ -67,17 +64,25 @@ You can create a new monitor from scratch or select a collection to monitor:
 
 ## Configuring a collection-based monitor
 
-Give your new monitor a **Monitor name** and select the **Collection** you want the monitor to run. (Depending on the method you chose to create the monitor, the collection might already be selected.) If the collection has multiple tags, select the **Collection tag** to use. You can also add an **Environment** if you would like the monitor to use one.
+Give your new monitor a **Monitor name** and select the **Collection** you want the monitor to run. Depending on the method you chose to create the monitor, the collection might already be selected.
+
+If the collection has multiple tags, select the **Collection tag** to use. (You can no longer create release tags for collections in Postman v10, but you can [publish versions of an API](/docs/designing-and-developing-your-api/versioning-an-api/api-versions/).) You can also add an **Environment** if you would like the monitor to use one.
 
 See the following sections for other configuration options you can select for your monitor. When you're finished, select **Create Monitor** to create the new monitor.
 
-![Create monitor page](https://assets.postman.com/postman-docs/v10/create-a-monitor-tab-1-v10.jpg)
+![Create monitor page](https://assets.postman.com/postman-docs/v10/create-a-monitor-tab-1-v10-22.jpg)
+
+> Because monitors run in the Postman cloud, they don't support requests that use files in your local [working directory](/docs/getting-started/installation/settings/#working-directory) to send [body data](/docs/sending-requests/create-requests/parameters/). Instead, [upload your test data files](/docs/sending-requests/create-requests/test-data/) to make them available for monitors in the cloud.
+
+<!-- -->
 
 > Postman maintains limits on various team and user actions, including monitor creation. For more information, see [Monitor activity limits](/docs/monitoring-your-api/monitor-usage/#monitor-activity-limits).
 
 ### Uploading a data file
 
-You can upload a data file to pass Postman sets of values to use during a monitor run. Postman will substitute the values for [variables](/docs/sending-requests/variables/) in requests or scripts in the monitored collection. By uploading a data file, you can run your tests with multiple sets of values within a single monitor run.
+You can upload a data file to pass Postman sets of values to use during a monitor run. Postman will substitute the values for [variables](/docs/sending-requests/variables/variables/) in requests or scripts in the monitored collection. By uploading a data file, you can run your tests with multiple sets of values within a single monitor run.
+
+> To learn more about uploading data files and attaching files to monitors, see the [Monitor FAQs](/docs/monitoring-your-api/faqs-monitors/#can-i-upload-data-files-or-attach-files-to-a-monitor).
 
 Data files can be in CSV or JSON format and must use the following structure:
 
@@ -87,7 +92,7 @@ Data files can be in CSV or JSON format and must use the following structure:
 
 To upload a data file, select **Select File** to locate and open your CSV or JSON file. Postman will use the data file when running your monitor. Data files are limited to 1 MB in size and a maximum of 50 data rows (CSV) or 50 objects (JSON).
 
-> **How do I use data variables in requests and scripts?** In requests (URLs, parameters, headers, authorization, and body), use double curly braces around your variable name, for example: `{{variable}}`. In pre-request scripts and test scripts, use `pm.iterationData` to access and manipulate variables. Learn more about [using variables](/docs/sending-requests/variables/#using-variables) and [using pm.iterationData methods](/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-data-variables-in-scripts).
+> **How do I use data variables in requests and scripts?** In requests (URLs, parameters, headers, authorization, and body), use double curly braces around your variable name, for example: `{{variable}}`. In pre-request scripts and test scripts, use `pm.iterationData` to access and manipulate variables. Learn more about [using variables](/docs/sending-requests/variables/variables/#using-variables) and [using pm.iterationData methods](/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-data-variables-in-scripts).
 
 ### Scheduling monitors
 
@@ -109,11 +114,13 @@ Static IPs are available on Postman Professional and Enterprise plans when you m
 
 When configuring a monitor, you can choose to receive email notifications for monitor run failures and errors. You can add up to five email recipients to receive notifications.
 
-> Once the number of consecutive failures exceeds the defined limit, Postman will stop sending failure notifications. The default limit is 3 consecutive failures.
+Postman will send an email notification each time the monitor fails. By default, Postman will stop sending failure notifications after 3 consecutive failures. You can specify a different value if you want Postman to send more or fewer emails when a monitor fails.
 
-You will receive daily and weekly summaries of your active monitors by email. If you want to opt out of daily or weekly summaries, select the notifications icon <img alt="Notifications icon" src="https://assets.postman.com/postman-docs/icon-notification-bell-v9.jpg#icon" width="18px"> in the Postman header and select **Manage Preferences**.
+Once the monitor run is successful, Postman will send an email notification to let you know the monitor has recovered. Note that if the number of monitor failures is less than the consecutive failure limit, you won't get a recovery email when the monitor is successful.
 
-[![monitor summary](https://assets.postman.com/postman-docs/monitor-summary-email.jpg)](https://assets.postman.com/postman-docs/monitor-summary-email.jpg)
+![monitor summary](https://assets.postman.com/postman-docs/monitor-summary-email.jpg)
+
+> You will receive daily and weekly summaries of your active monitors by email. If you want to opt out of daily or weekly summaries, select the notifications icon <img alt="Notifications icon" src="https://assets.postman.com/postman-docs/icon-notification-bell-v9.jpg#icon" width="18px"> in the Postman header and select **Manage Preferences**.
 
 ### Using retry on failure
 
@@ -123,15 +130,15 @@ To run a monitor again after a failure or error, select the **Retry if run fails
 
 ### Adding request timeouts
 
-You can choose to **Set request timeout** if you'd like to make sure all of your requests run within a certain amount of time. By default, each monitor run has a timeout of 10 minutes (Postman Free plans) or 15 minutes (Postman Basic, Professional, and Enterprise plans). These timeout values apply to the entire monitor run, including all HTTP requests, responses, pre-request scripts, and test scripts.
+You can choose to **Set request timeout** if you'd like to make sure all of your requests run within a certain amount of time. By default, each monitor run has a timeout of 10 minutes (Postman Free plans) or 15 minutes (Postman paid plans). These timeout values apply to the entire monitor run, including all HTTP requests, responses, pre-request scripts, and test scripts.
 
-> For Postman Free plans, monitor timeout can't exceed 10 minutes (600000 ms). For Postman Basic, Professional, and Enterprise plans, monitor timeout can't exceed 15 minutes (900000 ms)
+> For Postman Free plans, monitor timeout can't exceed 10 minutes (600000 ms). For Postman paid plans, monitor timeout can't exceed 15 minutes (900000 ms)
 
 ### Adding delays between requests
 
 Enabling **Set delay between requests** will insert a delay between all requests in your collection. To configure the delay for individual requests, you can add a delay in your [pre-request or test scripts](/docs/writing-scripts/intro-to-scripts/) using `setTimeout()`.
 
-> For Postman Free plans, the delay between requests can't exceed 10 minutes (600000 ms). For Postman Basic, Professional, and Enterprise plans, the delay between requests can't exceed 15 minutes (900000 ms). Note that these values are the same as the maximum runtime for a monitor.
+> For Postman Free plans, the delay between requests can't exceed 10 minutes (600000 ms). For Postman paid plans, the delay between requests can't exceed 15 minutes (900000 ms). Note that these values are the same as the maximum runtime for a monitor.
 
 ### Managing redirect behavior
 
@@ -139,7 +146,7 @@ Select **Follow redirects** to enable URL redirection for requests run by the mo
 
 ### Disabling SSL validation
 
-The **Enable SSL validation** option is selected by default. You can turn off SSL validation if you are using self-signed certificates and want to stop validations of SSL certificates. For more information, see [Working with certificates](/docs/sending-requests/certificates/) and [How to Troubleshoot SSL Certificate & Server Connection Issues](https://blog.postman.com/self-signed-ssl-certificate-troubleshooting/).
+The **Enable SSL validation** option is selected by default. You can turn off SSL validation if you are using self-signed certificates and want to stop validations of SSL certificates. For more information, see [Working with certificates](/docs/sending-requests/authorization/certificates/) and [How to Troubleshoot SSL Certificate & Server Connection Issues](https://blog.postman.com/self-signed-ssl-certificate-troubleshooting/).
 
 ## Working with collection-based monitors
 

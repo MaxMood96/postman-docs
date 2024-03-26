@@ -46,8 +46,9 @@ class EditDoc extends Component {
         buttonType="secondary"
         as="a"
         id="GTM-LC-id" 
-        href={`https://github.com/postmanlabs/postman-docs/blob/develop/src/pages${pathRoute}.md`} 
+        src={`https://github.com/postmanlabs/postman-docs/blob/develop/src/pages${pathRoute}.md`} 
         target="new-tab-external-nofollow"
+        className="pmt-edit-btn"
         >
         <SvgWrapper >
           <svg className="button-icon--left" transform="translate(0, -1)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
@@ -70,7 +71,7 @@ class EditDoc extends Component {
           </svg> */}
         </SvgWrapper>
         <EditbuttonStyle>
-          Edit this Doc
+          Edit This Doc
         </EditbuttonStyle>
       </BaseButton>
     );

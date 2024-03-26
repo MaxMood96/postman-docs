@@ -1,29 +1,19 @@
 ---
-title: "Capturing HTTPS traffic"
-order: 32
-page_id: "capturing_http_requests"
-updated: 2022-01-05
+title: "Capture HTTPS traffic using the Postman built-in proxy"
+updated: 2023-09-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Sending requests"
-    url: "/docs/sending-requests/requests/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Capture API Calls With a Proxy"
     url: "https://youtu.be/bjrCHUITZ3k"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Postman’s Proxy Now Fully Supports HTTPS Endpoints"
     url: "https://blog.postman.com/postmans-proxy-now-fully-supports-https-endpoints/"
-
-warning: false
-
 ---
 
 In addition to capturing HTTP traffic, you can use the Postman's built-in proxy to inspect HTTPS communication from your Android, iOS, Linux, macOS, and Windows devices.
@@ -39,7 +29,7 @@ You must install the `postman-proxy-ca.crt` certificate on your device to be abl
     * [Installing the security certificate on Windows](#installing-the-security-certificate-on-windows)
 * [macOS](#macos)
 * [CentOS and Red Hat Enterprise Linux](#centos-and-red-hat-enterprise-linux)
-* [Ubuntu](#Ubuntu)
+* [Ubuntu](#ubuntu)
     * [Installing the certificate for use with Chrome](#installing-the-certificate-for-use-with-chrome)
     * [Installing the certificate for use with Mozilla Firefox](#installing-the-certificate-for-use-with-mozilla-firefox)
 * [iOS](#ios)
@@ -47,6 +37,8 @@ You must install the `postman-proxy-ca.crt` certificate on your device to be abl
 * [Troubleshooting certificate issues](#troubleshooting-certificate-issues)
 
 ## Windows
+
+> If you're on Windows and using Postman v10.18 or later, the Postman security certificate is automatically installed on your computer the first time you start the proxy. Also, you don't need to install OpenSSL. To learn more, go to [Capturing requests with the Postman proxy](/docs/sending-requests/capturing-request-data/capture-with-proxy/).
 
 Before you install the `postman-proxy-ca.crt` certificate, you must install the OpenSSL module.
 
@@ -100,6 +92,8 @@ To install OpenSSL for Windows systems, do the following:
 
 ## macOS
 
+> If you're on macOS and using Postman v10.17 or later, the Postman security certificate is automatically installed on your computer the first time you start the proxy. To learn more, go to [Capturing requests with the Postman proxy](/docs/sending-requests/capturing-request-data/capture-with-proxy/).
+
 To install the security certificate on macOS, do the following:
 
 1. In the macOS Finder, open the `~/Library/Application Support/Postman/proxy` folder.
@@ -130,15 +124,15 @@ To install the security certificate on CentOS and Red Hat Enterprise Linux, do t
 
 To install the security certificate on Ubuntu, do the following:
 
-1. Create the directory for the CA certificate with the command below.
+1. Create the directory for the CA certificate with this command:
 
     `sudo mkdir -p /usr/share/ca-certificates/extra`
 
-1. Copy `postman-proxy-ca.crt` to the new folder with the command below.
+1. Copy `postman-proxy-ca.crt` to the new folder with this command:
 
     `sudo cp ~/.config/Postman/proxy/postman-proxy-ca.crt /usr/share/ca-certificates/extra/postman-proxy-ca.crt`
 
-1. Add the certificate to the system with the two commands below.
+1. Add the certificate to the system with these two commands:
 
     `sudo dpkg-reconfigure ca-certificates`
 
@@ -146,9 +140,9 @@ To install the security certificate on Ubuntu, do the following:
 
 ### Installing the certificate for use with Chrome
 
-1. Open Google Chrome and go to the URL `chrome://settings/certificates`.
+1. Open Google Chrome and go to the URL `chrome://settings/security`.
 
-1. Select **Manage certificates** from the list.
+1. Select **Manage device certificates** from the list.
 
 1. Select the **Authorities** tab and then **Import**.
 
@@ -199,7 +193,7 @@ To install the security certificate on Android, do the following:
 1. Open the **Settings** app and go to **Security > Encryption & credentials**.
 1. Select **Install a certificate** and select the **CA Certificate** option.
 1. A security warning displays. Select **Install anyway** to proceed.
-1. Browse for and select the `postman-proxy-ca.crt` certificate file. You will get a message that the certificate is installed. You can now capture traffic through a web browser on Android.
+1. Browse for and select the `postman-proxy-ca.crt` certificate file. You will get a message that the certificate is installed. You can capture traffic through a web browser on Android.
 
 > **Need to capture requests from an Android app?** To capture requests from an Android app, you need to add a network security configuration file to your app to trust the `postman-proxy-ca.crt` certificate. For more information, see [Trust additional CAs](https://developer.android.com/training/articles/security-config#TrustingAdditionalCas) on the Android Developers portal.
 
@@ -211,7 +205,7 @@ If you are unable to correctly install the `postman-proxy-ca.crt` certificate, o
 
 To regenerate and reinstall the certificate, do the following:
 
-1. Make sure you are running Postman version 9.1 or later. See [Updating Postman](/docs/getting-started/installation-and-updates/#updating-postman).
+1. Make sure you are running Postman version 9.1 or later. See [Update Postman](/docs/getting-started/installation/installation-and-updates/#update-postman).
 1. On the computer where Postman is installed, delete the `/Postman/Proxy` folder. You can find the folder in the following location:
 
     * **macOS** - `~/Library/Application Support/Postman/proxy`
@@ -219,4 +213,4 @@ To regenerate and reinstall the certificate, do the following:
     * **Linux** - `~/.config/Postman/proxy`
 
 1. Close and restart Postman. Postman regenerates the certificate.
-1. Follow the steps for your device to [reinstall the certificate](#capturing-https-traffic).
+1. If prompted, follow the steps for your device to reinstall the certificate.

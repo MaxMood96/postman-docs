@@ -1,16 +1,11 @@
 ---
-title: "Using installed apps in integrations"
-updated: 2022-07-08
+title: "Add new integrations using installed apps in Postman"
+updated: 2023-03-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Integrating with Postman"
-    url: "/docs/integrations/intro-integrations/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "The New Postman API Platform: Introducing Powerful Integrations"
     url: "https://blog.postman.com/the-new-postman-api-platform/"
@@ -35,65 +30,63 @@ When you authenticate with a third-party service, you can choose to have Postman
 
 You can add installed apps for the following Postman integrations:
 
-* [Slack](/docs/integrations/available-integrations/slack/) - Post monitoring results
+* [GitHub Enterprise Server](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/#connecting-to-github-enterprise-server-or-gitlab-self-managed) - Connect an API to a Git repository hosted in GitHub Enterprise Server
+* [GitLab Self-Managed](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/#connecting-to-github-enterprise-server-or-gitlab-self-managed) - Connect an API to a Git repository hosted in GitLab Self-Managed
+* [Slack](/docs/integrations/available-integrations/slack/) - Post monitoring results in Slack
 
 ## Adding an installed app
 
-You can add an installed app from Team Settings or when adding a new integration. After you add an installed app, any member of your team can use it add a [supported integration](#supported-integrations).
+You can add an installed app from Team Settings. For Slack, you can also add an installed app when adding a new integration. After you add an installed app, any member of your team can use it add a [supported integration](#supported-integrations).
 
 ### Adding an installed app from Team Settings
 
 You can add a new installed app from [Team Settings](https://go.postman.co/settings/team/general).
 
-1. In Postman, select **Team** > **Team Settings**.
+1. In Postman, select **Team > Team Settings**.
 1. Select **Installed apps**.
-1. Select the third-party app or service you want to add (for example, **Add Slack**).
-1. A browser tab opens asking you to log in to the third-party app or service. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman.
+1. Select the third-party app or service you want to add. The next steps can differ depending on the app or service you selected:
+
+    * **Slack** - A browser tab opens asking you to sign in to Slack. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman.
+    * **GitHub Enterprise Server or GitLab Self-Managed** - Enter the client ID and client secret for your OAuth app. For complete steps, go to [Connecting to GitHub Enterprise Server or GitLab Self-Managed](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/#connecting-to-github-enterprise-server-or-gitlab-self-managed).
 
 The new installed app appears on the Installed Apps page in [Team Settings](https://go.postman.co/settings/team/general).
 
-<img alt="Adding an installed app from Team Settings" src="https://assets.postman.com/postman-docs/installed-apps-add-from-settings-v9-24.jpg">
+<img alt="Adding an installed app from Team Settings" src="https://assets.postman.com/postman-docs/v10/installed-apps-adding-v10-12.jpg">
 
-### Adding an installed app when adding an integration
+### Adding an installed app when adding a Slack integration
 
-You can add a new installed app when adding a [supported integration](#supported-integrations).
+You can add a new installed app for Slack when adding a Slack integration.
 
 1. From the Postman **[Home](https://go.postman.co/home)** page, select **[Integrations](https://go.postman.co/integrations)**.
 1. Select **Browse All Integrations**.
-1. Search for and select the app or service you want to connect to (for example, **[Slack](https://go.postman.co/integrations/service/slack)**).
+1. Search for and select **[Slack](https://go.postman.co/integrations/service/slack)**.
 1. Select **Add Integration** next to the integration you want to add.
-1. A browser tab opens asking you to log in to the third-party app or service. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman.
-1. Select the checkbox to add the app for your team.
-1. Enter any other required information and select **Add Integration**.
+1. A browser tab opens asking you to sign in to Slack. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman.
+1. Select the checkbox to add Slack for your team.
+1. Enter the other required information and select **Add Integration**. For more help, go to the [Slack integration page](/docs/integrations/available-integrations/slack/).
 
-The integration is added, and the new installed app appears on the Installed Apps page in [Team Settings](https://go.postman.co/settings/team/general).
-
-> For help adding an integration, go to [Available integrations](/docs/integrations/available-integrations/apimatic/) in the Postman Learning Center and select the app you want to integrate with.
+The Slack integration is added, and the new installed app appears on the Installed Apps page in [Team Settings](https://go.postman.co/settings/team/general).
 
 <img alt="Adding an installed app when adding an integration" src="https://assets.postman.com/postman-docs/installed-apps-add-from-integration-v9-24.jpg" width="530px">
 
 ## Managing installed apps
 
-You can view all installed apps in [Team Settings](https://go.postman.co/settings/team/general).  In Postman, select **Team** > **Team Settings**, and then select **Installed apps**. You can view the app name, what it's connected to, and who set up the connection.
+You can view all installed apps in [Team Settings](https://go.postman.co/settings/team/general).  In Postman, select **Team > Team Settings**, and then select **Installed apps**. You can view the app name, what it's connected to, and who set up the connection.
 
-To delete an installed app, select <img alt="Delete icon" src="https://assets.postman.com/postman-docs/icon-delete-v9.jpg#icon" width="12px"> **Delete Account** next to the installed app. You must be a [Team Admin](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) to delete an installed app.
+To edit an installed app, select the edit icon <img alt="Edit icon" src="https://assets.postman.com/postman-docs/documentation-edit-icon-v8-10.jpg#icon" width="18px"> next to the installed app.
+
+To delete an installed app, select the delete icon <img alt="Delete icon" src="https://assets.postman.com/postman-docs/icon-delete-v9.jpg#icon" width="12px"> next to the installed app. You must be a [Team Admin](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) to delete an installed app.
 
 > **Use caution when deleting an installed app.** If you delete an installed app, any integrations created using the installed app will stop working. You must [re-authenticate the affected integrations](#re-authenticating-an-integration) for them to continue working.
 
-<img alt="Managing installed apps" src="https://assets.postman.com/postman-docs/installed-apps-manage-v9-24.jpg">
+<img alt="Managing installed apps" src="https://assets.postman.com/postman-docs/v10/installed-apps-managing-v10-12.jpg">
 
 ## Adding integrations using installed apps
 
 Any team member can use an installed app when adding a [supported integration](#supported-integrations).
 
-1. From the Postman **[Home](https://go.postman.co/home)** page, select **[Integrations](https://go.postman.co/integrations)**.
-1. Select **Browse All Integrations**.
-1. Search for and select the app or service you want to connect to (for example, **[Slack](https://go.postman.co/integrations/service/slack)**).
-1. Select **Add Integration** next to the integration you want to add.
-1. A message and green checkmark let you know you're connected to the app or service. If you want to authenticate using different credentials, select the link.
-1. Enter any other required information and select **Add Integration**.
-
-> For help adding an integration, go to [Available integrations](/docs/integrations/available-integrations/apimatic/) in the Postman Learning Center and select the app you want to integrate with.
+* **Slack** - Follow the steps to add a new [Slack integration](/docs/integrations/available-integrations/slack/). A message and green checkmark let you know you're connected Slack. Enter the other required information and select **Add Integration**.
+* **GitHub Enterprise Server or GitLab Self-Managed** - You can use the installed app to connect an API to GitHub Enterprise Server or GitLab Self-Managed. For details, go to [Connecting an API using an installed app](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/#connecting-an-api-using-an-installed-app).
 
 <img alt="Adding an integration using an installed app" src="https://assets.postman.com/postman-docs/installed-apps-using-v9-25.jpg" width="520px">
 
@@ -101,11 +94,7 @@ Any team member can use an installed app when adding a [supported integration](#
 
 If an installed app is deleted, any integrations you added using the installed app will stop working. You must re-authenticate the affected integrations for them to continue working.
 
-1. From the Postman **[Home](https://go.postman.co/home)** page, select **[Integrations](https://go.postman.co/integrations)**.
-1. Search for and select the type of integration you want to edit. (For example, search for **Slack** and select **Post monitoring results**.)
-1. Select the integration, and then select **Edit Integration**.
-1. A message and red warning icon let you know you're no longer authenticated with the app or service. Select **Reauthenticate**.
-1. A browser tab opens asking you to log in to the third-party app or service. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman.
-1. Select **Save Changes**.
+* **Slack** - [Edit the Slack integration](/docs/integrations/intro-integrations/#view-or-edit-integrations) and select **Reauthenticate**. A browser tab opens asking you to sign in to Slack. Follow the onscreen instructions. When you're finished, close the browser tab and return to Postman. Select **Save Changes**.
+* **GitHub Enterprise Server or GitLab Self-Managed** - Add the installed app again. For details, go to [Connecting an API using an installed app](/docs/designing-and-developing-your-api/versioning-an-api/using-on-prem-git-repo/#connecting-an-api-using-an-installed-app).
 
 <img alt="Re-authenticating an integration" src="https://assets.postman.com/postman-docs/installed-apps-reauthorize-v9-24.jpg" width="530px">

@@ -114,8 +114,8 @@
     img[src$='#icon'] {
         margin-bottom: 0;
         display: inline;
-        width: 18pt;
-        height: auto;
+        width: auto !important;
+        height: 16pt !important;
       }
         
     /* Adding custom messages before and after the content */

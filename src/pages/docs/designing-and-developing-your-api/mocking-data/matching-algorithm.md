@@ -1,19 +1,7 @@
 ---
-title: "Understanding example matching"
+title: "How a Postman mock server matches requests to saved examples"
 updated: 2022-09-26
 search_keyword: "x-mock-response-name, x-mock-response-id, x-mock-response-code, requestMethod, requestPath"
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Mock servers overview"
-    url: "/docs/designing-and-developing-your-api/mocking-data/mock-servers-overview/"
-  - type: link
-    name: "Sending requests"
-    url: "/docs/sending-requests/requests/"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
 ---
 
 Using Postman's [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) requires a collection with requests and saved request examples. You can save as many examples to a collection as you want, and the mock server will return these examples predictably. Postman uses a matching algorithm to decide which examples to return.
@@ -43,7 +31,7 @@ The incoming request can have several configurable variables, such as `requestMe
 
 Other optional headers like `x-mock-response-name` or `x-mock-response-id` enable you to further specify the example to be returned based on the name or the UID of the saved example. You can get the example UID by using the Postman API to [GET a Single Collection](https://documenter.getpostman.com/view/12959542/UV5XjJV8#a6a282df-907e-438b-8fe6-e5efaa60b8bf) and searching for your example in the response. The UID has the syntax `<user_id>-<response_id>`.
 
-<img alt="Mock request configurable elements" src="https://assets.postman.com/postman-docs/mock-configurable-elements-v9-19.jpg"/>
+<img alt="Mock request configurable elements" src="https://assets.postman.com/postman-docs/v10/mock-configurable-elements-v10.jpg"/>
 
 ## How the matching algorithm works
 
@@ -64,8 +52,12 @@ Any responses that aren't the same HTTP method type as the incoming request are 
 The matching algorithm checks any custom headers passed in the incoming request in the following order:
 
 1. If the `x-mock-response-code` header is provided, the algorithm filters out all examples that don't have a matching response status code.
-1. If the `x-mock-response-id` header is provided, the algorithm selects the example with the matching response ID and returns the example as the response. An error is returned if no example is found with a matching ID.
-1. If the `x-mock-response-name` header is provided, the algorithm selects the example with the matching name and returns the example as the response. If more than one example has the same name, Postman sorts the examples by ID and returns the example that comes first in the list. An error is returned if no example is found with a matching name.
+1. If the `x-mock-response-id` header is provided, the algorithm selects the example with the matching response ID and returns the example as the response. If no example is found with a matching ID, the matching process stops and Postman returns an error.
+1. If the `x-mock-response-name` header is provided, the algorithm selects the example with the matching name and returns the example as the response.
+
+    * If more than one example in the mocked collection has the same name, Postman sorts the examples by ID and returns the first example in the list with a `200` response status code.
+    * If none of the matching examples has a `200` response status code, Postman returns the first example in the sorted list.
+    * If no example is found with a matching name, the matching process stops and Postman returns an error.
 
 ### 4. Filter by URL
 
@@ -88,28 +80,37 @@ An example starts with a score of 100. The algorithm goes through the following 
 
 ### 5. Filter by parameters
 
-After matching URLs, the algorithm examines the parameters for each example (such as `{{url}}/path?status=pass`). The matching score is further adjusted based on how closely the request and example parameters match.
+After matching URLs, the algorithm examines the parameters for each example (such as `{{url}}/path?status=pass`). The matching score is further adjusted based on the number of parameter matches, partial parameter matches, and missing parameters.
 
-| Parameter matching step | Matching score adjustment |
+* **Parameter match** - A key-value pair in the example matches a key-value pair in the incoming request.
+* **Partial parameter match** - A key in the example matches a key in the incoming request, but the values for the keys don't match.
+* **Missing parameter** - A key is present in the example or the incoming request but not in both.
+
+The number of matching parameters is used to calculate the _matching percentage_. The matching percentage equals the number of parameter matches divided by the sum of all parameter matches, partial parameter matches, and missing parameters.
+
+| Parameter matching result | Matching score adjustment |
 | ----------- | ----------- |
-| Parameter match is perfect | Increased by 10 |
-| Parameter match is case insensitive | Increased by 5 |
-| Parameters don't match | Reduced by 10 |
+| All parameters match (case sensitive) | Increased by 10 |
+| Some parameters match | Increased by 10 multiplied by the matching percentage |
+| No parameters match | Reduced by the number of missing parameters (maximum reduction of 10) |
 
 ### 6. Check for header and body matching
 
-You can [turn on header and body matching](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/#matching-request-body-and-headers) in the mock server configuration. When these settings are turned on:
+You can [enable header and body matching](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/#matching-request-body-and-headers) in the mock server configuration. You can also enable header and body matching by passing the custom header `x-mock-match-request-body` or `x-mock-match-request-headers` with the request. (These custom headers have higher precedence than header or body matching values specified in the mock server configuration.)
 
-* The algorithm first filters out all examples that don't match the specified request headers. Header matching is case insensitive.
-* The algorithm then filters out all examples that don't match the request body.
+When header and body matching are enabled:
 
-> You can also enable header and body matching by passing the custom header `x-mock-match-request-body` or `x-mock-match-request-headers` with the request. These custom headers have higher precedence than header or body matching values specified in the mock server configuration.
+1. The algorithm first filters out all examples that don't match the specified request headers. Header matching is case insensitive.
+1. The algorithm then filters out all examples that don't match the request body.
+
+> **When body matching isn't explicitly enabled, the matching algorithm still considers the request body.** If an example's body matches the request body, the example's matching score is increased by 5. If the example's body doesn't match the request body, the example's score isn't adjusted, and the example isn't removed from the matching process.
 
 ### 7. Select the highest matching score
 
 The matching algorithm checks the matching scores of the remaining examples and returns the example with the highest score.
 
-> If more than one example has the same matching score, the algorithm returns the example that comes last in lexicographical order by ID.
+* If more than one example has the highest score, Postman sorts the examples by ID and returns the first example in the list with a `200` response status code.
+* If none of the highest-scoring examples has a `200` response status code, Postman returns the first example in the sorted list.
 
 ## Using wildcard variables
 
@@ -147,4 +148,5 @@ If the mock server isn't returning the example you expect for a request, try the
 
 * **Add different path variables to your examples.** Two examples with the same path variables will be assigned the same matching score. In this case, Postman will return one of the examples. To make sure more than one example isn't assigned the same matching score, use different path variables for each of your examples.
 * **Use optional headers to return a specific example.** You can make sure the mock server returns a specific example by using the `x-mock-response-name` or `x-mock-response-id` header in your request. Postman will return the example with the matching name or UID.
-* **Filter out examples by response code.** You can use the `x-mock-response-code` header in your request to specify the response code you want. Any examples that don't have the matching response code are removed from the matching process.
+* **Make sure to use unique names for all saved examples in the mocked collection.** If more than one example in the collection has the same name, you may not get the expected response when using the `x-mock-response-name` header. Alternatively, you can use the `x-mock-response-id` header to get the correct response. To find the ID of a saved example, select it in the sidebar, then select the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar.
+* **Filter out examples by response status code.** You can use the `x-mock-response-code` header in your request to specify the response status code you want. Any examples that don't have the matching response status code are removed from the matching process.

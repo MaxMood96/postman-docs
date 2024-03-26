@@ -1,11 +1,11 @@
 ---
-title: "Security warnings"
+title: "Security warnings in API requests"
 updated: 2022-07-20
 contextual_links:
   - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing API Security in Postman v10"
     url: "https://blog.postman.com/introducing-api-security-in-postman-v10/"
@@ -201,7 +201,7 @@ The SQL error stack trace is exposed in the response body. This means an attacke
 
 ## Cross-site scripting
 
-Cross-Site scripting ([XSS](https://owasp.org/www-community/attacks/xss/)) attacks are a type of injection in which a malicious script is injected into a trusted website. XSS attacks occur when an attacker uses a web application to send malicious code, most often a browser-side script, to a different end user.
+Cross-Site scripting ([XSS](https://owasp.org/www-community/attacks/xss/)) attacks are a type of injection in which a malicious script is injected into a trusted website. XSS attacks occur when an attacker uses a web application to send malicious code, most often a browser-side script, to a different user.
 
 ### Sensitive cookie without `HttpOnly` flag
 
@@ -247,6 +247,6 @@ The `X-Frame-Options` header is set to `Allow`. This means all websites can load
 
 Issue description | Possible fix
 --- | ---
-The `X-Content-Type-Options` header isn’t configured correctly. This means an attacker could upload a HTML file disguised as a different file type that the web server accepts (for example, a JPEG or a .ZIP file). The browser renders the uploaded file as an HTML file, then the attacker can execute an XSS attack. | To turn off MIME sniffing in Internet Explorer and Chrome, use the `X-Content-Type-Options: nosniff` HTTP header. This requires the browser to use the MIME type sent by the server. Since the browser will no longer analyze the file, the website owner must make sure that they’re sending the appropriate MIME information.
+The `X-Content-Type-Options` header isn’t configured correctly. This means an attacker could upload a HTML file disguised as a different file type that the web server accepts (for example, a JPEG or a zip file). The browser renders the uploaded file as an HTML file, then the attacker can execute an XSS attack. | To turn off MIME sniffing in Internet Explorer and Chrome, use the `X-Content-Type-Options: nosniff` HTTP header. This requires the browser to use the MIME type sent by the server. Since the browser will no longer analyze the file, the website owner must make sure that they’re sending the appropriate MIME information.
 
 <!-- vale Postman.Weasel = YES -->

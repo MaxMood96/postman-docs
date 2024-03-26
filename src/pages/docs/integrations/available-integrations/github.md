@@ -1,34 +1,29 @@
 ---
-title: "GitHub"
-updated: 2022-11-29
+title: "Integrate Postman with GitHub"
+updated: 2023-04-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Syncing Your OpenAPI, RAML, and GraphQL Schema to GitHub with Postman"
     url:  "https://blog.postman.com/syncing-your-openapi-raml-and-graphql-schema-to-github-with-postman/"
   - type: subtitle
     name: "Case Studies"
   - type: link
-    name: "Reputation"
+    name: "Reputation uses Postman with GitHub to streamline its CI/CD pipeline"
     url: "https://www.postman.com/case-studies/reputation/"
 
 ---
 
-> **[GitHub Enterprise Server integrations are available on Postman Enterprise plans.](https://www.postman.com/pricing)**
+> **[GitHub Enterprise Server integrations are available on Postman Enterprise Ultimate plans.](https://www.postman.com/pricing)**
 
 Back up your Postman collections to GitHub, a cloud-based hosting service for Git repositories, with the Postman to GitHub integration. You can also back up collections to a custom domain on GitHub Enterprise Server.
 
 Setting up a GitHub integration requires you to generate a GitHub personal access token and configure how you would like to back up your collections.
 
-> To import data into Postman from a GitHub repository, see [Importing from GitHub repositories](/docs/getting-started/importing-and-exporting-data/#importing-from-github-repositories).
+> To import data into Postman from a GitHub repository, see [Importing from GitHub repositories](/docs/getting-started/importing-and-exporting/importing-from-git/).
 
 ## Contents
 
@@ -40,7 +35,9 @@ Setting up a GitHub integration requires you to generate a GitHub personal acces
 
 ## API sync with GitHub
 
-With Postman v10, you can connect a GitHub repository to an API in the API Builder. Once connected, you can sync your API's definition and associated collections between Postman and GitHub. You can switch branches, pull changes from the repository, and push changes to the repository, all from within Postman. To learn more about syncing your API with GitHub, see [Versioning APIs](/docs/designing-and-developing-your-api/versioning-an-api/).
+With Postman v10, you can connect a GitHub repository to an API in the API Builder. Once connected, you can sync your API's definition and associated collections between Postman and GitHub. You can switch branches, pull changes from the repository, and push changes to the repository, all from within Postman. To learn more about syncing your API with GitHub, see [API version control overview](/docs/designing-and-developing-your-api/versioning-an-api/versioning-an-api-overview/).
+
+> **The legacy GitHub Sync API schema integration is no longer available.** You can't create new integrations using this legacy integration, and any legacy integrations you created have been removed. Instead, you can [connect your API to a Git repository](/docs/designing-and-developing-your-api/versioning-an-api/versioning-an-api-overview/) to sync your API's definition between Postman and GitHub.
 
 ## Generating a GitHub personal access token
 
@@ -58,7 +55,7 @@ To integrate with GitHub, you need a GitHub personal access token.
 
 ## Backing up collections to GitHub
 
- You can back up a Postman collection to a GitHub repository. After you create the integration, any new changes to the collection in Postman will also appear in the GitHub repository.
+ You can back up a Postman Collection to a GitHub repository. After you create the integration, any new changes to the collection in Postman will also appear in the GitHub repository.
 
 1. From the **[Home](https://go.postman.co/home)** page select **[Integrations](https://go.postman.co/integrations)**.
 
@@ -88,13 +85,15 @@ To integrate with GitHub, you need a GitHub personal access token.
 
 1. To finish setting up the integration, select **Add Integration**.
 
-Every change saved to your Postman collection automatically commits changes to your GitHub repository in JSON format. Go to your GitHub repository to view your collections.
+Postman often checks your collection for changes. If Postman identifies changes when it checks your collection, the changes automatically commit to your repository in JSON format. Go to your GitHub repository to view your collections.
 
 <img alt="Collection backup in GitHub" src="https://assets.postman.com/postman-docs/v10/integrations-github-repo-v10.jpg" />
 
+> **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a collection by opening the collection and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
+
 ## Backing up collections to GitHub Enterprise Server
 
-You can back up a Postman collection to a GitHub Enterprise Server repository on a custom domain. Follow the same step as [backing up collections to GitHub](#backing-up-collections-to-github) with the following differences.
+You can back up a Postman Collection to a GitHub Enterprise Server repository on a custom domain. Follow the same step as [backing up collections to GitHub](#backing-up-collections-to-github) with the following differences.
 
 1. After searching for the GitHub integration in Postman, select **Add Integration** next to **Backup a collection (custom domain)**.
 
@@ -105,6 +104,8 @@ You can back up a Postman collection to a GitHub Enterprise Server repository on
 1. Configure the integration with your collection, repository, directory, file name, and branch.
 
 1. To finish setting up the integration, select **Add Integration**.
+
+Postman often checks your collection for changes. If Postman identifies changes when it checks your collection, the changes automatically commit to your repository in JSON format. Go to your GitHub repository to view your collections.
 
 ### Static IP support
 
@@ -124,7 +125,7 @@ If your GitHub integration has issues or your data isn't pushed to GitHub, make 
 
 * You added the GitHub integration in the same workspace as the content you want to push to the GitHub repository.
 * You selected the correct GitHub integration in Postman. For example, if you use [GitHub Enterprise Server on a custom domain](#backing-up-collections-to-github-enterprise-server), make sure you selected the **Backup a collection (custom domain)** integration.
-* You initialized your GitHub repository with a `README.md` file. When creating a new repository, you can select the **Add a README file** check box.
+* You initialized your GitHub repository with a `README.md` file. When creating a new repository, you can select the **Add a README file** checkbox.
 * You selected the correct permissions when creating your GitHub [personal access token](#generating-a-github-personal-access-token):
 
     * **Classic token** - Make sure to select the `repo` and `user` scopes.

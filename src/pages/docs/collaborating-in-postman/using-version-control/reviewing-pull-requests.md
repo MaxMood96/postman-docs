@@ -1,24 +1,16 @@
 ---
-title: "Reviewing pull requests"
+title: "Review pull requests in Postman"
 updated: 2022-11-17
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Version control overview"
-    url: "/docs/collaborating-in-postman/using-version-control/version-control-overview/"
-  - type: link
-    name: "Creating pull requests"
-    url: "/docs/collaborating-in-postman/using-version-control/creating-pull-requests/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "Version Control for Collections | Postman Level Up"
     url: "https://www.youtube.com/watch?v=QKxukXJWRPI&list=PLM-7VG-sgbtC5tNXxd28cmePSa9BYwqeU&index=7"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing Environment Forking and Pull Requests"
     url: "https://blog.postman.com/introducing-environment-forking-and-pull-requests/"
@@ -30,11 +22,6 @@ contextual_links:
   - type: link
     name: "Youi"
     url: "https://www.postman.com/case-studies/youi/"
-  - type: section
-    name: "Next Steps"
-  - type: link
-    name: "Versioning APIs"
-    url: "/docs/designing-and-developing-your-api/versioning-an-api/"
 ---
 
 If you're tagged as a reviewer on a pull request, you can view the changes, comment, approve or decline the request, and merge the forked collection or environment into the parent element.
@@ -77,16 +64,10 @@ The diff will tell you whether a change is an addition, a deletion, or a modific
 
 ## Adding comments
 
-Adding comments as a reviewer is an important part of the pull request process, facilitating meaningful conversations and allowing stakeholders to have a voice in the process.
+1. Select the comments icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> in the right sidebar and enter your comment.
+1. Select **Comment** to add your comment.
 
-To add a comment to a pull request, do the following:
-
-1. Select the comment icon <img alt="Comments icon" src="https://assets.postman.com/postman-docs/icon-comments-v9.jpg#icon" width="18px"> next to the change that you want to comment on.
-1. Once you've written your comment, select **Add Comment**.
-
-<img alt="Add a comment to a pull review" src="https://assets.postman.com/postman-docs/v10/pr-add-comment-v10.jpg"/>
-
-> To tag another user in your comment, use the **@** symbol before their username.
+> You can learn more about [using comments to collaborate on pull requests](/docs/collaborating-in-postman/working-with-your-team/discussing-your-work/).
 
 ## Editing or declining a pull request
 
@@ -134,7 +115,7 @@ You can keep your forked collections and environments up to date with any change
 
     <img alt="Pull changes into fork" src="https://assets.postman.com/postman-docs/v10/pull-changes-v10.jpg"/>
 
-To pull updates from a parent element without opening a pull request, see [Pulling updates from a parent element](/docs/collaborating-in-postman/using-version-control/forking-entities/#pulling-updates-from-a-parent-element).
+To pull updates from a parent element without opening a pull request, see [Pulling updates from a parent element](/docs/collaborating-in-postman/using-version-control/forking-elements/#pull-updates-from-a-parent-element).
 
 ## Merging changes from a pull request
 
@@ -144,18 +125,18 @@ When you're ready to add the changes from a pull request, you'll _merge_ them in
 
     ![Merge a pull request](https://assets.postman.com/postman-docs/v10/pull-request-merge-fork-v10.jpg)
 
-    > If the parent element has any changes since you last updated your fork, you can [pull those changes](/docs/collaborating-in-postman/using-version-control/forking-entities/#pulling-updates-from-a-parent-element) before merging.
+    > If the parent element has any changes since you last updated your fork, you can [pull those changes](/docs/collaborating-in-postman/using-version-control/forking-elements/#pull-updates-from-a-parent-element) before merging.
 
 1. Select one of the following merge options:
     * **Merge changes** - Merge the changes into the parent element. This doesn't make any changes to the fork. You must have Editor access to the parent element.
-    * **Merge changes and update source** - Merge the changes into the parent element. Any differences in the parent element are also made to the fork. You must have Editor access to both the parent and forked entities.
-    * **Merge changes and delete source** - Merge the changes into the parent element. After the merge process is complete, Postman deletes the fork. You must have Editor access to both the parent and forked entities.
+    * **Merge changes and update source** - Merge the changes into the parent element. Any differences in the parent element are also made to the fork. You must have Editor access to both the parent and forked elements.
+    * **Merge changes and delete source** - Merge the changes into the parent element. After the merge process is complete, Postman deletes the fork. You must have Editor access to both the parent and forked elements.
 
     <img src="https://assets.postman.com/postman-docs/merge-fork-options-v9.12.jpg" alt="Merge Fork Options" width="400px"/>
 
 1. Select **Merge**.
 
-To merge changes from a fork without opening a pull request, see [Merging changes from a fork](/docs/collaborating-in-postman/using-version-control/forking-entities/#merging-changes-from-a-fork).
+To merge changes from a fork without opening a pull request, see [Merging changes from a fork](/docs/collaborating-in-postman/using-version-control/forking-elements/#merge-changes-from-a-fork).
 
 ## Resolving conflicts from a pull request
 

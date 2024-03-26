@@ -1,17 +1,9 @@
 ---
-title: "Opsgenie"
-updated: 2022-07-06
+title: "Integrate Postman with Opsgenie"
+updated: 2023-09-25
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: link
-    name: "Intro to Monitoring"
-    url: "/docs/monitoring-your-api/intro-monitors/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
@@ -28,21 +20,13 @@ The Postman to Opsgenie integration enables you to configure [Postman Monitors](
 
 * [Get the Opsgenie API Key](#get-the-opsgenie-api-key)
 
-* [Configuring Postman Integration](#configuring-postman-integration)
+* [Configuring Postman integration](#configuring-postman-integration)
 
 * [Alerts on Opsgenie](#alerts-on-opsgenie)
 
 ## Get the Opsgenie API key
 
-1. Sign in to your Opsgenie account.
-1. Select the **Teams** tab.
-1. Select the team that will own the integration and receive alert notifications.
-1. Select **Integrations** > **Add integration**.
-1. From the list of integrations, select the [**API integration**](https://support.atlassian.com/opsgenie/docs/what-is-a-default-api-integration/) option.
-1. On the configuration page, fill in your information and select **Save Integration**.
-1. Copy your API Key and save it for later.
-
-For more information, refer to [Create an API integration](https://support.atlassian.com/opsgenie/docs/create-a-default-api-integration/) in the Opsgenie documentation.
+To set up your Opsgenie API key, refer to [Create an API integration](https://support.atlassian.com/opsgenie/docs/create-a-default-api-integration/) in the Opsgenie documentation.
 
 ## Configuring Postman integration
 
@@ -52,22 +36,19 @@ For more information, refer to [Create an API integration](https://support.atlas
 
 1. Search and select **Opsgenie**.
 
-1. On the **[Create alert for monitoring failures](https://postman.postman.co/integrations/service/opsgenie/monitor_run_opsgenie)** page, select **Add Integration**.
+1. On the **[Create alert for monitoring failures](https://go.postman.co/integrations/service/opsgenie/monitor_run_opsgenie)** page, select **Add Integration**.
 
-1. On the **[Add integration - Authenticate](https://postman.postman.co/integrations/service/opsgenie/add/monitor_run_opsgenie)** page, enter the Opsgenie API key you saved from your Opsgenie console. Select the [**Opsgenie site region** for your Opsgenie account](https://support.atlassian.com/opsgenie/docs/opsgenie-data-residency/).
+1. On the **[Add integration - Authenticate](https://go.postman.co/integrations/service/opsgenie/add/monitor_run_opsgenie)** page, enter the Opsgenie API key you saved from your Opsgenie console. Select the [**Opsgenie site region** for your Opsgenie account](https://support.atlassian.com/opsgenie/docs/opsgenie-data-residency/).
 
-1. On the **[Add integration - Configure](https://postman.postman.co/integrations/service/opsgenie/add/monitor_run_opsgenie)** page, configure your integration:
-    * Give the integration a nickname.
-    * Select the workspace your monitor belongs to.
-    * Select your monitor.
-    * Add tags to your Opsgenie alert.
-    * Assign a priority to your Opsgenie alert.
-
-1. Select **Add Integration**.
+1. On the **[Add integration - Configure](https://go.postman.co/integrations/service/opsgenie/add/monitor_run_opsgenie)** page, configure your integration's **Nickname**, **Choose workspace**, **Choose Monitor**, add **Tags**, and **Choose alert priority** settings.
 
     <img src="https://assets.postman.com/postman-docs/opsgenie-save-configuration-b.jpg" alt="Save opsgenie configuration" width="500px"/>
 
+1. Select **Add Integration**.
+
 1. After you create the integration, you have access to a list of all of the integrations created by your team. Select an integration to inspect its run logs.
+
+    > **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a monitor by opening the monitor and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
 
     ![View integration run log](https://assets.postman.com/postman-docs/opsgenie-run-logs.jpg)
 

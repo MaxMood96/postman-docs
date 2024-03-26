@@ -1,21 +1,11 @@
 ---
-title: "Configuring SCIM with OneLogin"
-order: 142
+title: "Configure SCIM with OneLogin"
 updated: 2022-03-17
-page_id: "configuring_scim_with_onelogin"
-warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Configuring SSO with OneLogin"
-    url: "/docs/administration/sso/onelogin/"
-
 ---
 
-Postman supports SCIM provisioning through OneLogin with the Postman OneLogin app, allowing you to automate user provisioning and de-provisioning for your team.
+Postman supports SCIM provisioning through OneLogin with the Postman OneLogin app, enabling you to automate user provisioning and de-provisioning for your team.
 
-You must be an administrator in both OneLogin and Postman to enable SCIM for your team. With SCIM enabled, users won't have the option to leave your team on their own, and won't be able to change their account email or password. Only Team Admins will have the right to remove team members.
+You must be an administrator in both OneLogin and Postman to enable SCIM for your team. With SCIM enabled, users won't have the option to leave your team on their own, and won't be able to change their account email or password. Only [Team Admins](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) will have the right to remove team members.
 
 ## Contents
 
@@ -37,7 +27,7 @@ To set up provisioning with OneLogin, do the following:
 
     <img alt="OneLogin configuration API connection" src="https://assets.postman.com/postman-docs/onelogin-api-connection.jpg" width="275px"/>
 
-3. Click **Save**.
+3. Select **Save**.
 
 ## Configuring the OneLogin SCIM integration
 

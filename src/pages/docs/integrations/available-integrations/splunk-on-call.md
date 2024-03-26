@@ -1,19 +1,9 @@
 ---
-title: "Splunk On-Call"
+title: "Integrate Postman with Splunk On-Call"
 order: 177.1
 updated: 2022-07-07
 page_id: "splunk-on-call"
-search_keyword: "VictorOps, victorops, splunk oncall"
 warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: link
-    name: "Intro to Monitoring"
-    url: "/docs/monitoring-your-api/intro-monitors/"
 ---
 
 Splunk On-Call (formerly VictorOps) is a real-time incident management platform that handles incidents as they occur and prepares for the next one.
@@ -38,7 +28,7 @@ If you are using teams in Splunk On-Call, you can route alerts to specific teams
 1. Select **Add Key**.
 1. Enter the API key you copied from the **Integrations** page and select an escalation policy.
 
-## Configuring Postman monitors
+## Configuring Postman Monitors
 
 1. On the **[Home](https://go.postman.co/home)** page, select **[Integrations](https://go.postman.co/integrations)**.
 
@@ -61,6 +51,8 @@ If you are using teams in Splunk On-Call, you can route alerts to specific teams
 1. Select the name of the integration you added to view the monitoring results.
 
    ![Splunk On-Call add integration](https://assets.postman.com/postman-docs/splunk-on-call-view-all-integrations.jpg)
+
+> **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a monitor by opening the monitor and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
 
 ## Incidents on Splunk On-Call
 

@@ -1,53 +1,53 @@
 ---
-title: "Publishing your docs"
-updated: 2022-10-04
+title: "Publish documentation in Postman"
+updated: 2023-04-15
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
     name: "API Documentation | The Exploratory"
     url: "https://youtu.be/XNVo9WkCoak"
-  - type: subtitle
-    name: "Blog Posts"
   - type: link
-    name: "Postman Public API Network Is Now the World’s Largest Public API Hub"
-    url: "https://blog.postman.com/postman-public-api-network-is-now-the-worlds-largest-public-api-hub/"
+    name: "Customize Public Documentation | Postman Level Up"
+    url: "https://youtu.be/X6Yi8aJOLds"
+  - type: subtitle
+    name: "Blog posts"
+  - type: link
+    name: "Introducing more customization for published collection documentation"
+    url: "https://blog.postman.com/introducing-more-customization-for-published-collection-documentation/"
   - type: link
     name: "Introducing Governance for Publishing Collection Documentation"
     url: "https://blog.postman.com/introducing-governance-publishing-collection-documentation/"
+  - type: link
+    name: "How to publish and market your API to maximize adoption"
+    url: "https://blog.postman.com/how-to-publish-and-market-your-api-to-maximize-adoption/"
   - type: subtitle
     name: "Case Studies"
   - type: link
-    name: "Imgur"
-    url: "https://www.postman.com/resources/case-studies/imgur/"
+    name: "Axis Bank shortens development pipelines using public URLs"
+    url: "https://www.postman.com/case-studies/axis-bank/"
 ---
 
 Publishing your documentation makes it publicly available to anyone with the link to the documentation and a web browser. Publish your documentation to help people around the world learn how to use your collection or interact with your Public API.
 
-Public documentation automatically includes details for each request or endpoint in the published collection, along with sample code in various client languages. As you modify your collection, the published documentation automatically stays in sync with  your latest changes. There's no need to publish the documentation again after making changes.
+Public documentation automatically includes details for each request or endpoint in the published collection, along with sample code in various client languages. As you update your collection, the published documentation automatically stays in sync with  your latest changes. There's no need to publish the documentation again after making changes.
 
-> Your public documentation includes the **Run in Postman** button so users can interact with your collection or API directly in Postman. For an example, check out the [Postman API documentation](https://documenter.postman.com/view/631643/JsLs/) which was published from a Postman Collection.
+> Your public documentation includes the **Run in Postman** button so users can interact with your collection or API directly in Postman. For an example, check out the [Postman API documentation](https://documenter.getpostman.com/view/12959542/UV5XjJV8) which was published from a Postman Collection.
 
 ## Contents
 
 * [Making your documentation public](#making-your-documentation-public)
-* [Adding a custom logo](#adding-a-custom-logo)
 * [Sharing your public docs](#sharing-your-public-docs)
 * [Changing publication settings](#changing-publication-settings)
 * [Unpublishing your docs](#unpublishing-your-docs)
 
 ## Making your documentation public
 
-To publish [documentation](/docs/publishing-your-api/documenting-your-api/), it must be part of a collection. You can publish documentation for any collections that you created or have permission to edit.
+To publish [documentation](/docs/publishing-your-api/document-a-collection/), it must be part of a collection. You can publish documentation for any collections that you created or have permission to edit.
 
-> You can't publish a collection that has [gRPC requests](/docs/sending-requests/grpc/grpc-request-interface/#the-right-sidebar) or [WebSocket requests](/docs/sending-requests/websocket/websocket/#documenting-requests). Also, you can't publish a collection that has been added to an API. Instead, you can [publish a version of the API](/docs/designing-and-developing-your-api/versioning-an-api/api-versions/). A published version includes the API's definition and collections.
+> You can't publish a collection that has [gRPC requests](/docs/sending-requests/grpc/grpc-request-interface/#the-right-sidebar) or [WebSocket requests](/docs/sending-requests/websocket/websocket-overview/). Also, you can't publish a collection that has been added to an API. Instead, you can [publish a version of the API](/docs/designing-and-developing-your-api/versioning-an-api/api-versions/). A published version includes the API's definition and collections.
 
 To publish the documentation for a collection, do the following:
 
@@ -60,12 +60,27 @@ To publish the documentation for a collection, do the following:
 1. Change any publication settings as needed:
 
     * **Version** - If the collection has multiple versions, select the versions to publish. (You can no longer create versions or releases for collections in Postman v10, but you can [publish versions of an API](/docs/designing-and-developing-your-api/versioning-an-api/api-versions/).)
-    * **Environment** - Select an [environment](/docs/publishing-your-api/documenting-your-api/#associating-environments-with-documentation) to publish environment variables with your documentation. *The initial values of all variables are published with your documentation, so make sure they don't contain sensitive information such as passwords or tokens.*
+    * **Environment** - Select an [environment](/docs/publishing-your-api/document-a-collection/#associate-environments-with-documentation) to publish environment variables with your documentation. *The initial values of all variables are published with your documentation, so make sure they don't contain sensitive information such as passwords or tokens.*
     * **Custom domain** - Select a [custom domain](/docs/publishing-your-api/custom-doc-domains/) where you want to publish your documentation.
     * **Default layout** - Select a layout style for your documentation. **Double column** displays sample code in a column next to the documentation. **Single column** displays sample code inline beneath each request.
-    * **Header background color** - Specify a color (hex format) for the header at the top of the documentation window.
-    * **Code background color** - Specify a color (hex format) for sample code blocks.
-    * **Highlight color** - Specify a color (hex format) for hyperlinks.
+    * **Default Theme** - Select a light or dark theme for your documentation. You can also choose to use the system theme. Your documentation will use the selected theme by default, but users can switch between themes.
+    * **Logo** - By default, public documentation uses your [team logo](/docs/administration/managing-your-team/team-settings/#edit-your-team-profile). You can also select a custom logo for each theme (light and dark):
+
+        * To add a logo, select the edit icon <img alt="Edit icon" src="https://assets.postman.com/postman-docs/documentation-edit-icon-v8-10.jpg#icon" width="18px"> and select **Upload**. Drag and drop an image file, or select an image file. Drag the handles to adjust the part of the image you want to display, then select **Upload**.
+        * To delete a logo, select the edit icon <img alt="Edit icon" src="https://assets.postman.com/postman-docs/documentation-edit-icon-v8-10.jpg#icon" width="18px"> and select **Delete**.
+
+        > You can use different logos for each collection you publish. Logos must be 2 MB or less in size and must be in JPEG or PNG format. The logo can be any aspect ratio (square or rectangle.)
+
+    * **Colors** - You can customize the colors for each theme (light and dark):
+
+        * **Header background** - Specify a color (hex format) for the header at the top of the documentation window.
+        * **Code background** - Specify a color (hex format) for sample code blocks.
+        * **Highlight** - Specify a color (hex format) for hyperlinks.
+
+    * **SEO** - You can add metadata to your documentation to make it more discoverable on the web:
+
+        * **Title** - Add a title for your documentation (60 characters or less). The title will appear in web searches and in browser tabs.
+        * **Description** - Add a brief description to let users know what your documentation is about (160 characters or less). You can also add relevant keywords to help users find your documentation when searching the web.
 
 1. To preview your documentation using the current settings, select **Preview Documentation**. The preview automatically updates as you change settings.
 
@@ -77,11 +92,7 @@ To publish the documentation for a collection, do the following:
 
     * **Postman Enterprise plans** - Your [Community Manager](/docs/collaborating-in-postman/roles-and-permissions/#team-roles) controls the Postman elements your team makes public. Enter a note for your Community Manager and select **Request Publish**. When your request is approved, you will receive an email notification with a link to the public documentation. To retract your publish request, [change the pending publication settings](#changing-publication-settings) and select **Retract request**.
 
-[![Published documentation example](https://assets.postman.com/postman-docs/documentation-published-docs-v9.jpg)](https://assets.postman.com/postman-docs/documentation-published-docs-v9.jpg)
-
-## Adding a custom logo
-
-If you have a [Team Admin role](/docs/collaborating-in-postman/roles-and-permissions/#team-roles), you can customize your published documentation with a team logo. To add a logo, [edit your team profile](/docs/administration/team-settings/#editing-your-team-profile) in your [team settings](https://go.postman.co/settings/team/general). Your team logo will replace the Postman logo in your team's published documentation. (It may take several minutes for the new logo to appear.)
+![Published documentation example](https://assets.postman.com/postman-docs/v10/documentation-published-docs-v10.jpg)
 
 ## Sharing your public docs
 
@@ -121,4 +132,4 @@ If you no longer want your documentation to be publicly available, you can unpub
 
 If you change your mind, you can [publish your documentation](#making-your-documentation-public) again at any time.
 
-<img alt="Unpublish documentation" src="https://assets.postman.com/postman-docs/documentation-unpublish-v9.jpg" width="737px">
+<img alt="Unpublish documentation" src="https://assets.postman.com/postman-docs/v10/documentation-unpublish-v10.jpg">

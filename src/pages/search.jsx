@@ -13,7 +13,7 @@ import {
   Snippet,
   useInstantSearch,
   Configure
-} from 'react-instantsearch-hooks-web';
+} from 'react-instantsearch';
 
 
 /* URL manipulation
@@ -142,12 +142,11 @@ function Hit({ hit }) {
   return (
     <>
       <HitStyle>
-        <a href={hit.fields.slug}>
+        <a href={hit.slug}>
           <h4>
             <Highlight attribute="title" hit={hit} />
           </h4>
           <p>
-            {/* <Highlight attribute="excerpt" hit={hit} /> */}
             {/* "_snippetResult.description.value" attribute of the JSON answer will only contain the 10 best words of this description. */}
             <Snippet hit={hit} attribute="excerpt" /> ...
           </p>

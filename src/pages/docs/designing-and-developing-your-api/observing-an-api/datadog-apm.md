@@ -1,13 +1,7 @@
 ---
-title: 'Viewing Datadog metrics'
+title: "View Datadog APM metrics in Postman"
 updated: 2022-09-15
 warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Observing an API"
-    url: "/docs/designing-and-developing-your-api/observing-an-api/observing-an-api/"
 ---
 
 Datadog is an application performance management (APM) service that provides visibility for cloud-scale applications. The API Builder has a Datadog integration that enables you to access Datadog APM metrics from within Postman.

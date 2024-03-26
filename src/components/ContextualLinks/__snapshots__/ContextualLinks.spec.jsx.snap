@@ -13,7 +13,7 @@ exports[`ContextualLinks renders correctly 1`] = `
     className="contextual-links__link"
   >
     <a
-      className="dynamic-link__external"
+      className="dynamic-link__external pmt-rightnav-link"
       href="https://www.postman.com/downloads/"
     >
       Download and Install
@@ -28,7 +28,7 @@ exports[`ContextualLinks renders correctly 1`] = `
     className="contextual-links__link"
   >
     <a
-      className="dynamic-link__internal"
+      className="dynamic-link__internal pmt-rightnav-link"
       href="/"
     >
       home

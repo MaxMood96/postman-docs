@@ -1,21 +1,16 @@
 ---
-title: "OpenAPI 2.0 rules"
+title: "OpenAPI 2 security and formatting warnings"
 updated: 2022-07-20
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Rule violations in the API definition"
-    url: "https://learning.postman.com/docs/api-governance/api-definition/api-definition-warnings/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
-    name: "Blog Posts"
+    name: "Blog posts"
   - type: link
     name: "Introducing Security Warnings During API Validation"
     url: "https://blog.postman.com/security-warnings-during-api-validation/"
   - type: subtitle
-    name: "Public Workspaces"
+    name: "Public workspaces"
   - type: link
     name: "Postman Security"
     url:  "https://www.postman.com/postman/workspace/62d58d93-7e0c-45bf-9daa-cc8e531fc344"
@@ -25,7 +20,7 @@ You can use Postman to identify any potential security and formatting issues whe
 
 <img alt="OpenAPI 2.0 rule violations" src="https://assets.postman.com/postman-docs/v10/api-definition-rule-violations-openapi2-v10.1.jpg" />
 
-### Warnings for OpenAPI 2.0
+### Warnings for OpenAPI 2
 
 For all APIs defined in OpenAPI 2.0, the following list describes possible warning messages and potential ways to resolve them.
 
@@ -1177,7 +1172,7 @@ paths:
 
 | Issue description | Possible fix |
 | ----------- | ----------- |
-| A [schema object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#schemaObject) in one or more [body parameter objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#parameterObject) in your API definition don't have an example. It's important to provide an example of the request body to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/) or a [collection](/docs/getting-started/creating-the-first-collection/). | Add an `example` field to the schema of all body parameters. |
+| A [schema object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#schemaObject) in one or more [body parameter objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#parameterObject) in your API definition don't have an example. It's important to provide an example of the request body to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) or a [collection](/docs/getting-started/first-steps/creating-the-first-collection/). | Add an `example` field to the schema of all body parameters. |
 
 #### Resolution
 
@@ -1244,7 +1239,7 @@ paths:
 
 | Issue description | Possible fix |
 | ----------- | ----------- |
-| One or more [response objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#response-object) in your API definition don't have an example. It's important to provide an example of the response to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/) or a [collection](/docs/getting-started/creating-the-first-collection/). | Add an `examples` field to all response objects. |
+| One or more [response objects](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md#response-object) in your API definition don't have an example. It's important to provide an example of the response to help your API's consumers understand what data they'll receive. It may also help them to generate [mock servers](/docs/designing-and-developing-your-api/mocking-data/setting-up-mock/) or a [collection](/docs/getting-started/first-steps/creating-the-first-collection/). | Add an `examples` field to all response objects. |
 
 #### Resolution
 

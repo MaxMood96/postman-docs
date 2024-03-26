@@ -1,11 +1,11 @@
 ---
-title: "Viewing collection-based monitor results"
+title: "View collection-based monitor results"
 order: 90
 page_id: "viewing_monitor_results"
 updated: 2022-07-05
 contextual_links:
   - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Case Studies"
   - type: link
@@ -94,7 +94,7 @@ You can filter by request to compare an individual request's response time in di
 
 You can filter by run type to compare how the response time changes between manual runs, scheduled runs, and webhook runs. Select **Type: All**, then select the type of run you'd like to analyze further.
 
-> Manual runs are initiated in Postman or are triggered by the [Postman API](https://documenter.postman.com/view/631643/JsLs/?version=latest#5b277ca0-7114-e04e-f1f5-246fbbd6d973). Scheduled runs are initiated by the schedule you set when creating or editing your monitor. Webhook runs are initiated by integrations you've created.
+> Manual runs are initiated in Postman or are triggered by the [Postman API](https://documenter.getpostman.com/view/12959542/UV5XjJV8#688c4c2a-58b6-4f26-b06b-1f45508ee1d4). Scheduled runs are initiated by the schedule you set when creating or editing your monitor. Webhook runs are initiated by integrations you've created.
 
 #### Filtering by run result
 
@@ -103,7 +103,7 @@ Each run is labeled based on its result:
 * **Successful** - Your monitor completed the run with no issues and passed all tests.
 * **Failure** - Your monitor completed the run, however one or more tests failed.
 * **Error** - Your monitor was unable to complete its run due to an error. An error can occur if there is a syntax error in the code you've written, a network error, or for various other reasons. If you get an error, your [Console Log](#console-log) will help you identify what caused it.
-* **Abort** - Your monitor timed out because it didn't complete its run within the allotted 10 minutes (Postman Free plans) or 15 minutes (Postman Basic, Professional, and Enterprise plans).
+* **Abort** - Your monitor timed out because it didn't complete its run within the allotted 10 minutes (Postman Free plans) or 15 minutes (Postman paid plans).
 
 You can filter by run result to compare how your runs with the same result have differed. Select **Run result: All**, then select one or more types of run results to view.
 
@@ -136,23 +136,25 @@ You can review past run results to understand what happened at a particular poin
 
 Select **Test Results** to get more detailed information on your tests, including which passed or failed, the response codes, and the response times.
 
-[![test results](https://assets.postman.com/postman-docs/monitor-view-test-results0.jpg)](https://assets.postman.com/postman-docs/monitor-view-test-results0.jpg)
+If your monitor is configured to run in multiple regions, you can view the test results for a particular region by selecting it from **Region**.
 
-> If your monitor is configured to run in multiple regions, you can view the test results for a particular region by selecting it from **Region**.
+[![test results](https://assets.postman.com/postman-docs/monitor-view-test-results0.jpg)](https://assets.postman.com/postman-docs/monitor-view-test-results0.jpg)
 
 ### Console log
 
-Select **Console Log** to view monitor run details along with the [`console.log`](/docs/sending-requests/troubleshooting-api-requests/) statements that run as part of your pre-request and test scripts. Run details specify the various stages of a monitor run such as preparing run, running, rerunning ([if applicable](/docs/monitoring-your-api/setting-up-monitor/#using-retry-on-failure)), and the run result, along with error and test failure information. Selecting a request in the Console Log will open it in a tab, allowing you to review and edit the request as needed.
+Select **Console Log** to view monitor run details along with the [`console.log`](/docs/sending-requests/response-data/troubleshooting-api-requests/) statements that run as part of your pre-request and test scripts in the Postman Console. Run details specify the various stages of a monitor run such as preparing run, running, rerunning ([if applicable](/docs/monitoring-your-api/setting-up-monitor/#using-retry-on-failure)), and the run result, along with error and test failure information. Selecting a request in the Console Log will open it in a tab, allowing you to review and edit the request as needed.
 
-[![console log](https://assets.postman.com/postman-docs/monitor-view-console-log0.jpg)](https://assets.postman.com/postman-docs/monitor-view-console-log0.jpg)
+If your monitor is configured to run in multiple regions, you can view the Console logs for a particular region by selecting it from **Region**.
 
-> If your monitor is configured to run in multiple regions, you can view the console logs for a particular region by selecting it from **Region**.
+[![Console log](https://assets.postman.com/postman-docs/monitor-view-console-log0.jpg)](https://assets.postman.com/postman-docs/monitor-view-console-log0.jpg)
 
-You can use this console to both troubleshoot issues and learn more about an individual run's behavior.
+You can use the Console to both troubleshoot issues and learn more about an individual run's behavior.
+
+> **Monitor run logs are retained for a period of six months.** If you select a monitor run that's outside the retention period, you can view the number of failed tests and errors. Other monitor run details will no longer be available. To request this information, contact [Postman support](https://www.postman.com/support/).
 
 ### Activity log
 
-You can view a monitor's activity logs by selecting the changelog icon <img alt="Changelog icon" src="https://assets.postman.com/postman-docs/icon-changelog-v9.jpg#icon" width="18px"> in the upper-right corner > **View activity logs**.
+You can view a monitor's activity logs by selecting the changelog icon <img alt="Changelog icon" src="https://assets.postman.com/postman-docs/icon-changelog-v9.jpg#icon" width="18px"> in the upper-right corner, then selecting **View activity logs**.
 
 <img src="https://assets.postman.com/postman-docs/monitor-activity-log20.jpg" width="400px" alt="Activity log"/>
 

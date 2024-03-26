@@ -4,12 +4,6 @@ order: 140
 updated: 2020-05-22
 page_id: "ping_identity"
 warning: false
-contextual_links:
-  - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Intro to SSO"
-    url: "/docs/administration/sso/intro-sso/"
 ---
 
 > **[SSO with Ping Identity is available on Postman Enterprise plans.](https://www.postman.com/pricing)**
@@ -47,4 +41,4 @@ contextual_links:
 1. Once enabled, the status will show as **Active** for the SAML application.
    [![ping active](https://assets.postman.com/postman-docs/ping_active)](https://assets.postman.com/postman-docs/ping_active)
 
-1. Once the setup is completed, submit your Identity Provider's details to Postman. Copy the `Identity Provider Single Sign-On URL`, `Identity Provider Issuer`, and `X.509 Certificate` from the downloaded **SAML metadata** file and enter these values on the Postman [Edit Team Details page](https://go.postman.co/settings/team/general) within the **Ping Identity Provider Details** modal. For more details on this last step, review [setting up SSO in Postman](/docs/administration/sso/admin-sso/).
+1. Once the setup is completed, submit your identity provider's (IdP) details to Postman. Copy the `Identity Provider Single Sign-On URL`, `Identity Provider Issuer`, and `X.509 Certificate` from the downloaded **SAML metadata** file and enter these values on the Postman [Edit Team Details page](https://go.postman.co/settings/team/general) within the **Ping Identity Provider Details** modal. For more details on this last step, review [setting up SSO in Postman](/docs/administration/sso/admin-sso/).

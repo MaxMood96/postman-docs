@@ -1,17 +1,9 @@
 ---
-title: "GitLab"
-order: 169
-page_id: "gitlab"
+title: "Integrate Postman with GitLab"
 updated: 2021-11-15
-warning: false
 contextual_links:
   - type: section
-    name: "Prerequisites"
-  - type: link
-    name: "Grouping requests in collections"
-    url: "/docs/sending-requests/intro-to-collections/"
-  - type: section
-    name: "Additional Resources"
+    name: "Additional resources"
   - type: subtitle
     name: "Videos"
   - type: link
@@ -19,7 +11,7 @@ contextual_links:
     url: "https://youtu.be/BL8DFOPncMc"
 ---
 
-> **[GitLab Self-Managed integrations are available on Postman Enterprise plans.](https://www.postman.com/pricing)**
+> **[GitLab Self-Managed integrations are available on Postman Enterprise Ultimate plans.](https://www.postman.com/pricing)**
 >
 Back up your Postman Collections to GitLab, an open-source Git repository manager, with the Postman to GitLab integration.
 
@@ -27,31 +19,29 @@ Setting up a GitLab integration requires you to get a GitLab Personal Access Tok
 
 ## API sync with GitLab
 
-Postman 9.0 introduced the ability to connect a git repository to an API. Instead of using an integration, you can directly connect a GitLab repo to an API in the API Builder. This provides two-way sync of schemas and associated collections, plus adds features for syncing branches and release tags between Postman and your repo. For more information on the repo sync feature, see [Versioning APIs](/docs/designing-and-developing-your-api/versioning-an-api/).
+With Postman v10, you can connect a GitLab repository to an API in the API Builder. Once connected, you can sync your API's definition and associated collections between Postman and GitLab. You can switch branches, pull changes from the repository, and push changes to the repository, all from within Postman. To learn more about syncing your API with GitLab, see [API version control overview](/docs/designing-and-developing-your-api/versioning-an-api/versioning-an-api-overview/).
 
 ## Generating a GitLab Personal Access Token
 
 1. Sign in to [GitLab](https://about.gitlab.com/).
 
-1. If you don’t already have a Personal Access Token from GitLab, [generate a new one](https://gitlab.com/-/profile/personal_access_tokens).
+1. If you don’t already have a Personal Access Token from GitLab, generate a new one in your [GitLab dashboard](https://gitlab.com/-/profile/personal_access_tokens) by selecting **Add new token** under **Personal Access Tokens**.
 
-   ![gitlab create token](https://assets.postman.com/postman-docs/gitlab-create-token.jpg)
+   ![GitLab create token](https://assets.postman.com/postman-docs/v10/gitlab-generate-token-v10.18.jpg)
 
-1. Save the generated token to use later.
-
-   ![gitlab save token](https://assets.postman.com/postman-docs/gitlab-save-token.jpg)
+1. Copy the generated token to use when creating the integration in Postman.
 
 ## Configuring a backup for Postman collections in GitLab
 
-1. From the **[Home](https://go.postman.co/home)** page select **[Integrations](https://go.postman.co/integrations)**.
+1. On the **[Home](https://go.postman.co/home)** page select **[Integrations](https://go.postman.co/integrations)**.
 
 1. Search and select **GitLab**.
 
 1. You can select **View** or **View All** for a list of all the integrations created by your team.
 
-   ![gitlab add integration](https://assets.postman.com/postman-docs/gitlab-add-integration.jpg)
+   ![GitLab add integration](https://assets.postman.com/postman-docs/gitlab-add-integration.jpg)
 
-The above screen provides you the following two options:
+You can use the GitLab integration for two tasks:
 
 * [Back up your Postman Collections to GitLab](#back-up-your-postman-collections-to-gitlab)
 * [Back up your Postman Collections to GitLab on a custom domain](#back-up-your-postman-collections-to-gitlab-on-a-custom-domain)
@@ -60,7 +50,7 @@ The above screen provides you the following two options:
 
 1. Select **Add Integration** to enter your GitLab token to start the integration.
 
-   ![enter gitlab token](https://assets.postman.com/postman-docs/gitlab-backup-collection-authenticate.jpg)
+   ![Enter GitLab token](https://assets.postman.com/postman-docs/gitlab-backup-collection-authenticate.jpg)
 
 1. Enter your GitLab Personal Access Token and select **Authenticate and Proceed**.
 
@@ -68,13 +58,15 @@ The above screen provides you the following two options:
 
 1. In **Advanced Options** you can enter a custom directory name or leave `Postman Collections` as the default. You can specify a branch for commit or the default branch of the repository will be used.
 
-    ![gitlab integration configuration](https://assets.postman.com/postman-docs/gitlab-backup-collection-configuration.jpg)
+    ![GitLab integration configuration](https://assets.postman.com/postman-docs/gitlab-backup-collection-configuration.jpg)
 
 1. Select **Add Integration** to save your integration configuration.
 
 Your collection is pushed to your GitLab project under the filename that you specified and saved as a single JSON file.
 
-Every change that is saved to your Postman Collection automatically commits changes to your GitLab project in real time. Your collections and code can exist in the same repository.
+Postman often checks your collection for changes. If Postman identifies changes when it checks your collection, the changes automatically commit to your repository in JSON format. Your collections and code can exist in the same repository.
+
+> **You can view your configured integrations on the [Browse Integrations](https://go.postman.co/integrations/browse) page.** You can also view integrations that have been configured for a collection by opening the collection and selecting the information icon <img alt="Information icon" src="https://assets.postman.com/postman-docs/icon-information-v9-5.jpg#icon" width="16px"> in the right sidebar. Learn more about [viewing or editing integrations](/docs/integrations/intro-integrations/#view-or-edit-integrations).
 
 ## Back up your Postman Collections to GitLab on a custom domain
 
@@ -100,8 +92,8 @@ Every change that is saved to your Postman Collection automatically commits chan
 
 Your collection is pushed to your GitLab project under the directory that you specified and saved as a single JSON file.
 
-Every change that is saved to your Postman Collection automatically commits changes to your GitLab project in real time. Your collections and code can exist in the same repository.
+Postman often checks your collection for changes. If Postman identifies changes to your collection, the changes automatically commit to your repository in JSON format. Your collections and code can exist in the same repository.
 
-You can go to your GitLab domain and view your backed-up collections, as illustrated in the screen below:
+You can go to your GitLab domain and inspect your backed-up collections.
 
-![gitlab advanced options 2](https://assets.postman.com/postman-docs/gitlab-gray7.jpg)
+![GitLab advanced options 2](https://assets.postman.com/postman-docs/gitlab-gray7.jpg)
